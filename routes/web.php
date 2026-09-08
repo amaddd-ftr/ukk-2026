@@ -58,8 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
     Route::get('/kategori/create', [KategoriController::class, 'create'])->name('admin.kategori.create');
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('admin.kategori.store');
-    });
-
+    Route::delete('/kategori/{id}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
+});
 /*
 |--------------------------------------------------------------------------
 | Route role dinamis
