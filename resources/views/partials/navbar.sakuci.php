@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link {{ is_route('docs') ? 'active' : '' }}" href="{{ route('docs') }}">Docs</a>
                 </li>
+              <li class="nav-item">
+                <a class="nav-link {{ is_route('admin.kategori.index') ? 'active' : '' }}" href="{{ route ('admin.kategori.index') }}">Kategori</a>
+              </li>
                 @php
                     $currentUser = \App\Models\User::current();
                 @endphp
