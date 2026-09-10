@@ -3,7 +3,7 @@
 @section('content')
 <form action="{{ route('admin.kategori.update', ['id_kategori' => $kategori->id_kategori]) }}" method="post" class="d-flex flex-column form-horizontal">
     @csrf
-    @method('PUT')
+    @method('POST')
 
     <label>Nama Kategori</label>    
     <input type="text" name="nama_kategori" value="{{ $kategori->nama_kategori }}" class="form-control mb-3" required>

@@ -21,7 +21,7 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $x->nama_kategori }}</td>
                 <td>
-                       <a href="{{ route('admin.kategori.edit', ['id_kategori' => $x->id_kategori]) }}" class="btn btn-sm btn-warning">Edit</a>
+                       <a href="{{ route('admin.kategori.edit', ['id_kategori' => $x->id_kategori]) }}" class="btn btn-sm btn-success">Edit</a>
                         <form action="{{ route('admin.kategori.delete', ['id' => $x->id_kategori]) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
