@@ -7,6 +7,7 @@ use App\Controllers\Core\DocsController;
 use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
 use App\Controllers\KategoriController;
+use App\Controllers\LokasiController;
 use Sakuci\Route;
 
 /*
@@ -55,12 +56,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('/users', [UserController::class, 'store'])->name('admin.users.store');
 
     Route::get('/database/export', [DatabaseController::class, 'export'])->name('admin.database.export');
+
+//Kategori
     Route::get('/kategori', [KategoriController::class, 'index'])->name('admin.kategori.index');
     Route::get('/kategori/create', [KategoriController::class, 'create'])->name('admin.kategori.create');
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('admin.kategori.store');
     Route::get('/kategori/{id_kategori}/edit', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
     Route::post('/kategori/{id_kategori}', [KategoriController::class, 'update'])->name('admin.kategori.update');
     Route::delete('/kategori/{id_kategori}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
+
+//Lokasi
+  Route::get('/Lokasi', [LokasiController::class, 'index'])->name('admin.lokasi.index');
+  Route::get('/lokasi/create', [LokasiController::class, 'create'])->name('admin.lokasi.create');
+  Route::post('/lokasi/store', [LokasiController::class, 'store'])->name('admin.lokasi.store');
+  Route::get('/lokasi/{id_lokasi}/edit', [LokasiController::class, 'edit'])->name('admin.lokasi.edit');
+  Route::post('/lokasi/{id_lokasi}', [LokasiController::class, 'update'])->name('admin.lokasi.update');
+  Route::delete('/lokasi/{id_lokasi}', [LokasiController::class, 'delete'])->name('admin.lokasi.delete');
 });
 
 /*
