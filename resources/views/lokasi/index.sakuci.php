@@ -2,7 +2,7 @@
 @section ('title', config('app.name') . ' -- Kerangka PHP Ringan')
 @section('content')
 <div class="container">
-    <h1>Daftar Lokask</h1>
+    <h1>Daftar Lokasi</h1>
     <a href="{{ route('admin.lokasi.create') }}" class="btn btn-primary mb-3 btn-sm">Tambah Kategori</a>
     <table class="table table-bordered table-striped">
         <thead>
