@@ -8,6 +8,7 @@ use App\Controllers\Core\RoleController;
 use App\Controllers\Core\UserController;
 use App\Controllers\KategoriController;
 use App\Controllers\LokasiController;
+use App\Controllers\KondisiController;
 use Sakuci\Route;
 
 /*
@@ -72,6 +73,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/lokasi/{id_lokasi}/edit', [LokasiController::class, 'edit'])->name('admin.lokasi.edit');
   Route::post('/lokasi/{id_lokasi}', [LokasiController::class, 'update'])->name('admin.lokasi.update');
   Route::delete('/lokasi/{id_lokasi}', [LokasiController::class, 'delete'])->name('admin.lokasi.delete');
+
+//Kondisi
+  Route::get('/kondisi', [KondisiController::class, 'index'])->name('admin.kondisi.index');
+  Route::get('/kondisi/create', [KondisiController::class, 'create'])->name('admin.kondisi.create');
+  Route::post('/kondisi/store', [KondisiController::class, 'store'])->name('admin.kondisi.store');
+  Route::get('/kondisi/{id_kondisi}/edit', [KondisiController::class, 'edit'])->name('admin.kondisi.edit');
+  Route::post('/Kondisi/{id_kondisi}', [KondisiController::class, 'update'])->name('admin.kondisi.update');
+  Route::delete('/kondisi/{id_kondisi}', [KondisiController::class, 'delete'])->name('admin.kondisi.delete');
 });
 
 /*
