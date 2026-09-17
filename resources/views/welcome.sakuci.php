@@ -10,7 +10,7 @@
 
         <h1 class="display-5 fw-bold mb-3">
             Pengaduan Sarana & Prasarana<br class="d-none d-md-inline">
-            <span class="text-brand">Masjid</span>
+            <span class="text-brand">Sekolah</span>
         </h1>
 
         <p class="lead text-secondary mx-auto mb-4" style="max-width: 620px;">

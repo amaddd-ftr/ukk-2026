@@ -9,6 +9,7 @@ use App\Controllers\Core\UserController;
 use App\Controllers\KategoriController;
 use App\Controllers\LokasiController;
 use App\Controllers\KondisiController;
+use App\Controllers\SiswaController;
 use Sakuci\Route;
 
 /*
@@ -81,6 +82,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/kondisi/{id_kondisi}/edit', [KondisiController::class, 'edit'])->name('admin.kondisi.edit');
   Route::post('/Kondisi/{id_kondisi}', [KondisiController::class, 'update'])->name('admin.kondisi.update');
   Route::delete('/kondisi/{id_kondisi}', [KondisiController::class, 'delete'])->name('admin.kondisi.delete');
+
+//siswa
+  Route::get('/siswa', [SiswaController::class, 'index'])->name('admin.siswa.index');
+  Route::get('/siswa/create', [SiswaController::class, 'create'])->name('admin.siswa.create');
+  Route::post('/siswa/store', [SiswaController::class, 'store'])->name('admin.siswa.store');
 });
 
 /*
