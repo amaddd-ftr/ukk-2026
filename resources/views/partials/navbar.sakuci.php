@@ -51,6 +51,9 @@
               <li class="nav-item">
                 <a class="nav-link {{ is_route('admin.kondisi.index') ? 'active' : '' }}" href="{{ route ('admin.kondisi.index') }}">Kondisi</a>
               </li>
+                <li class="nav-item">
+                <a class="nav-link {{ is_route('admin.siswa.index') ? 'active' : '' }}" href="{{ route ('admin.siswa.index') }}">Siswa</a>
+              </li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-lg-inline">
                             @csrf

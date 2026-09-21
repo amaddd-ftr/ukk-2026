@@ -44,4 +44,28 @@ class SiswaController extends Controller
 
         return redirect()->route('admin.siswa.index')->with('success', 'Siswa berhasil ditambahkan.');
     }
+
+    public function edit($id_siswa)
+    {
+        $siswa = siswa::findOrFail($id_siswa);
+        return $this->view('siswa.edit', compact('siswa'));
+    }
+
+     public function update(Request $request, $id_siswa)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'nis' => 'required|string|unique:siswa,nis',
+            'kelas' => 'required|string|max:10',
+        ]);
+
+        $siswa = Siswa::findOrFail($id_siswa);
+        $siswa->update([
+            'nama' => $request->input('nama'),
+            'nis' => $request->input('nis'),
+            'kelas' => $request->input('kelas'),
+        ]);
+
+        return redirect()->route('admin.siswa.index')->with('success', 'Siswa berhasil diperbarui.');
+    }
 }

@@ -22,7 +22,6 @@
         </div>
     </section>
 
-    {{-- Instalasi --}}
     <section class="row g-4 align-items-start mb-5">
         <div class="col-lg-12">
             <div class="card border-0 shadow-sm">
@@ -33,6 +32,20 @@
                       
 <p>Aplikasi ini bertujuan untuk membuat proses pelaporan sarana dan prasarana menjadi lebih mudah, terorganisir, dan transparan, sehingga permasalahan fasilitas sekolah dapat ditangani dengan lebih baik.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+      <section class="row g-4 align-items-start mb-5">
+        <div class="col-lg-12">
+            <div class="card border-0 shadow-sm">
+                <Aplikasi class="card-body p-4">
+                    <h2 class="h5 fw-semibold mb-3">🔁 Cara Pengaduan</h2>
+                    <ol>
+                    <li> Login </li>
+                    <li> Buat Pengaduan </li>
+                    <li> Diproses </li>
+                    <li> Selesai </li>
+                    </ol>
             </div>
         </div>
     </section>

@@ -87,6 +87,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/siswa', [SiswaController::class, 'index'])->name('admin.siswa.index');
   Route::get('/siswa/create', [SiswaController::class, 'create'])->name('admin.siswa.create');
   Route::post('/siswa/store', [SiswaController::class, 'store'])->name('admin.siswa.store');
+  Route::get('/siswa/{id_siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
+  Route::post('/siswa/{id_siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
 });
 
 /*

@@ -25,6 +25,7 @@
                 <td>{{ $x->nis}}</td>
                 <td>{{ $x->kelas}}</td>
                 <td>
+                  <a href="{{ route('admin.siswa.edit', ['id_siswa' => $x->id_siswa]) }}" class="btn btn-sm btn-success">Edit</a>
                     </td>
 </tr>
 @endforeach
