@@ -4,9 +4,9 @@
 */
 
 :root {
-    --brand: #0F766E;
-    --brand-dark: #115E59;
-    --brand-subtle: #E6F4F1;
+    --brand: #003aea;
+    --brand-dark: #003aea;
+    --brand-subtle: #fff7ed;
 }
 
 body {
@@ -183,7 +183,7 @@ code.inline {
 .demo-box {
     padding: .6rem .5rem;
     background: var(--brand-subtle);
-    border: 1px solid #99D5CC;
+    border: 1px solid #fdba8c;
     border-radius: 6px;
     color: var(--brand-dark);
     font-size: .8rem;
@@ -240,14 +240,14 @@ code.inline {
 [data-bs-theme="dark"] .badge-brand,
 [data-bs-theme="dark"] .bg-brand-subtle,
 [data-bs-theme="dark"] .step-number {
-    background-color: rgba(45, 212, 191, .15) !important;
-    color: #2DD4BF;
+    background-color: rgba(194, 65, 12, .18) !important;
+    color: #fb923c;
 }
 
 [data-bs-theme="dark"] .demo-box {
-    background-color: rgba(45, 212, 191, .15);
-    border-color: rgba(45, 212, 191, .35);
-    color: #2DD4BF;
+    background-color: rgba(194, 65, 12, .18);
+    border-color: rgba(194, 65, 12, .4);
+    color: #fb923c;
 }
 
 [data-bs-theme="dark"] .demo-box-alt {
