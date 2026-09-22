@@ -26,7 +26,13 @@
                 <td>{{ $x->kelas}}</td>
                 <td>
                   <a href="{{ route('admin.siswa.edit', ['id_siswa' => $x->id_siswa]) }}" class="btn btn-sm btn-success">Edit</a>
+                   <form action="{{ route('admin.siswa.delete', ['id' => $x->id_siswa]) }}" method="POST" style="display: inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">Hapus</button>
+                        </form>
                     </td>
+</tr>
 </tr>
 @endforeach
         </tbody>

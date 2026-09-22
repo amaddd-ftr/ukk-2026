@@ -68,4 +68,12 @@ class SiswaController extends Controller
 
         return redirect()->route('admin.siswa.index')->with('success', 'Siswa berhasil diperbarui.');
     }
+
+     public function delete(Request $request, $id)
+    {
+        $siswa = siswa::findOrFail($id);
+        $siswa->delete();
+
+        return redirect()->route('admin.siswa.index')->with('success', 'siswa berhasil dihapus.');
+    } 
 }

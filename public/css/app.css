@@ -1,4 +1,4 @@
-﻿/*
+/*
 | Lapisan tema di atas Bootstrap.
 | Bootstrap dimuat lebih dulu, file ini hanya menimpa seperlunya.
 */
@@ -207,7 +207,7 @@ code.inline {
 
 /* Varian tema gelap untuk komponen yang warnanya di-hardcode di atas */
 [data-bs-theme="dark"] code.inline {
-    background: #1e293b;
+    background: #11005e;
     color: #e2e8f0;
 }
 
