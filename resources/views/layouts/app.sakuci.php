@@ -33,6 +33,21 @@
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('js/theme.js') }}"></script>
 @yield('scripts')
+<script>
+const sidebar = document.getElementById('sidebar');
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
 
+sidebarToggle.addEventListener('click', function () {
+    sidebar.classList.toggle('show');
+    sidebarOverlay.classList.toggle('show');
+});
+
+sidebarOverlay.addEventListener('click', function () {
+    sidebar.classList.remove('show');
+    sidebarOverlay.classList.remove('show');
+});
+  </script>
 </body>
+  
 </html>

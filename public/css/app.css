@@ -256,3 +256,274 @@ code.inline {
     color: #a5b4fc;
 }
 
+header.masthead {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: 0!important;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #8f8f8f 55%,
+        #ffffff 100%
+    );
+}
+
+[data-bs-theme="dark"] header.masthead {
+    background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #818181 50%,
+        #000000 100%
+    );
+}
+
+header.masthead .masthead-content {
+    position: relative;
+    z-index: 10;
+}
+
+header.masthead .masthead-content .masthead-heading {
+  font-size: 4rem;
+}
+header.masthead .masthead-content .masthead-subheading {
+  font-size: 2rem;
+}
+header.masthead .bg-circle {
+  z-index: 0;
+  position: absolute;
+  border-radius: 100%;
+  background: linear-gradient(0deg, #eeeeee 0%, #acacac 100%);
+}
+
+[data-bs-theme="dark"] header.masthead .bg-circle {
+    background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #333333 100%
+    );
+}
+header.masthead .bg-circle-1 {
+  height: 90rem;
+  width: 90rem;
+  bottom: -55rem;
+  left: -55rem;
+}
+header.masthead .bg-circle-2 {
+  height: 50rem;
+  width: 50rem;
+  top: -25rem;
+  right: -25rem;
+}
+header.masthead .bg-circle-3 {
+  height: 50rem;
+  width: 50rem;
+  bottom: -10rem;
+  right: 5%;
+}
+header.masthead .bg-circle-4 {
+  height: 30rem;
+  width: 30rem;
+  top: -5rem;
+  right: 35%;
+}
+
+@media (min-width: 992px) {
+    header.masthead {
+        padding-top: 4rem;
+        padding-bottom: 8rem;
+    }
+
+    header.masthead .masthead-content .masthead-heading {
+        font-size: 6rem;
+    }
+
+    header.masthead .masthead-content .masthead-subheading {
+        font-size: 4rem;
+    }
+
+}
+
+header.masthead h1,
+header.masthead p,
+header.masthead a {
+    position: relative;
+    z-index: 20;
+}
+
+header.masthead h1 {
+    color: #000000 !important;
+}
+
+[data-bs-theme="dark"] header.masthead h1 {
+  color: #ffffff !important;
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: var(--bs-body-bg);
+    border-right: 1px solid var(--bs-border-color);
+
+    z-index: 1050;
+
+    overflow-y: auto;
+
+    transition: transform .3s ease;
+}
+
+
+/* Logo */
+
+.sidebar-brand {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.sidebar-title {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+/* Menu */
+
+.sidebar-nav {
+    padding: 15px 12px;
+}
+
+.sidebar-link {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 14px;
+    margin-bottom: 5px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--bs-body-color);
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: all .2s ease;
+}
+
+.sidebar-link:hover {
+    background: var(--bs-tertiary-bg);
+    color: var(--brand);
+}
+
+.sidebar-link.active {
+    background: var(--brand);
+    color: #fff;
+}
+
+
+/* Garis pemisah */
+
+.sidebar-divider {
+    height: 1px;
+    background: var(--bs-border-color);
+    margin: 15px 5px;
+}
+
+
+/* Logout */
+
+.sidebar-logout {
+    text-align: left;
+}
+
+.sidebar-logout:hover {
+    color: #dc3545;
+}
+
+
+/* Tombol menu */
+
+.sidebar-toggle {
+    display: none;
+    position: static;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 10px;
+    background: var(--brand);
+    color: white;
+    font-size: 20px;
+}
+
+
+/* Overlay */
+
+.sidebar-overlay {
+    display: none;
+}
+
+
+/* Konten */
+
+.main-content {
+    margin-left: 260px;
+    min-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+
+        position: fixed;
+        inset: 0;
+
+        background: rgba(0, 0, 0, .45);
+
+        z-index: 1040;
+    }
+
+}

@@ -10,6 +10,8 @@ use App\Controllers\KategoriController;
 use App\Controllers\LokasiController;
 use App\Controllers\KondisiController;
 use App\Controllers\SiswaController;
+use App\Controllers\GedungController;
+use App\Controllers\RuanganController;
 use Sakuci\Route;
 
 /*
@@ -90,6 +92,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/siswa/{id_siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
   Route::post('/siswa/{id_siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
   Route::delete('/siswa/{id_siswa}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
+
+//Gedung
+  Route::get('/gedung', [GedungController::class, 'index'])->name('admin.gedung.index');
+  Route::get('/gedung/create', [GedungController::class, 'create'])->name('admin.gedung.create');
+  Route::post('/gedung/store', [GedungController::class, 'store'])->name('admin.gedung.store');
+  Route::get('/gedung/{id_gedung}/edit', [GedungController::class, 'edit'])->name('admin.gedung.edit');
+  Route::post('/gedung/{id_gedung}', [GedungController::class, 'update'])->name('admin.gedung.update');
+  Route::delete('/gedung/{id_gedung}', [GedungController::class, 'delete'])->name('admin.gedung.delete');
+
+//Ruangan/Tempat
+  Route::get('/ruangan', [RuanganController::class, 'index'])->name('admin.ruangan.index');
+  Route::get('/ruangan/create',[RuanganController::class, 'create'])->name('admin.ruangan.create');
+  Route::post('/ruangan/store', [RuanganController::class, 'store'])->name('admin.ruangan.store');
+  Route::get('/ruangan/{id_ruangan}/edit', [RuanganController::class, 'edit'])->name('admin.ruangan.edit');
+  Route::post('/ruangan/{id_ruangan}', [RuanganController::class, 'update'])->name('admin.ruangan.update');
+  Route::delete('/ruangan/{id_ruangan}', [RuanganController::class, 'delete'])->name('admin.ruangan.delete');
 });
 
 /*

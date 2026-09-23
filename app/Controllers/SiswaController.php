@@ -55,7 +55,7 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nis' => 'required|string|unique:siswa,nis',
+            'nis' => 'required|string|unique:siswa,nis,' . $id_siswa . ',id_siswa'
             'kelas' => 'required|string|max:10',
         ]);
 
@@ -72,7 +72,12 @@ class SiswaController extends Controller
      public function delete(Request $request, $id)
     {
         $siswa = siswa::findOrFail($id);
+        $user = user::find($siswa->id_user);
         $siswa->delete();
+
+      if ($user) {
+        $user->delete();
+      }
 
         return redirect()->route('admin.siswa.index')->with('success', 'siswa berhasil dihapus.');
     } 

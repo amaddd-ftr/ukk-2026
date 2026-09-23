@@ -1,0 +1,17 @@
+    <section class="text-center py-4 py-lg-5">
+
+        <h1 class="display-5 fw-bold mb-3">
+            Pengaduan Sarana & Prasarana,<br class="d-none d-md-inline">
+            <span class="text-brand">SEKOLAH</span>
+        </h1>
+
+        <p class="lead text-secondary mx-auto mb-4" style="max-width: 620px;">
+            "Laporkan kerusakan atau permasalahan
+   fasilitas sekolah dengan mudah dan cepat."
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <a class="btn btn-brand btn-lg px-4" href="{{ route('login') }}">Login untuk Membuat Pengaduan</a>
+        </div>
+    </section>
+    
