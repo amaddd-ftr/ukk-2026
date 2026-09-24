@@ -12,6 +12,7 @@ use App\Controllers\KondisiController;
 use App\Controllers\SiswaController;
 use App\Controllers\GedungController;
 use App\Controllers\RuanganController;
+use App\Controllers\SaranaController;
 use Sakuci\Route;
 
 /*
@@ -108,7 +109,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/ruangan/{id_ruangan}/edit', [RuanganController::class, 'edit'])->name('admin.ruangan.edit');
   Route::post('/ruangan/{id_ruangan}', [RuanganController::class, 'update'])->name('admin.ruangan.update');
   Route::delete('/ruangan/{id_ruangan}', [RuanganController::class, 'delete'])->name('admin.ruangan.delete');
-});
+
+//Sarana
+  
+
+  });
 
 /*
 |--------------------------------------------------------------------------
