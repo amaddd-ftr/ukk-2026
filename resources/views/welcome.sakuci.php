@@ -8,12 +8,12 @@
 <header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container px-5">
-                    <h1 class="display-5 fw-bold mb-3 jusul-sarpras">
+                    <h1 class="display-5 fw-bold mb-3 ">
             Pengaduan Sarana & Prasarana,<br class="d-none d-md-inline">
             <span class="text-brand">SEKOLAH</span>
         </h1>
 
-        <p class="lead text-secondary mx-auto mb-4" style="max-width: 620px;">
+        <p class="lead text-white mx-auto mb-4" style="max-width: 620px;">
             "Laporkan kerusakan atau permasalahan
    fasilitas sekolah dengan mudah dan cepat."
         </p>

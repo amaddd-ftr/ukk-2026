@@ -4,8 +4,8 @@
 */
 
 :root {
-    --brand: #003aea;
-    --brand-dark: #003aea;
+    --brand: #b10000;
+    --brand-dark: #b10000;
     --brand-subtle: #fff7ed;
 }
 
@@ -59,18 +59,17 @@ body {
    (hijau/merah) tetap menunjukkan status koneksi database seperti biasa;
    cincin luarnya yang berubah warna mengikuti tema aktif. */
 .logo-toggle {
-    display: inline-flex;
-    flex: 0 0 auto;
+    position: static !important;
+    justify-self: center;
+    padding: 0;
+    margin: 0;
     border: 0;
     background: transparent;
-    padding: 0;
-    line-height: 0;
-    border-radius: 50%;
-    transition: transform .15s ease;
+    transform: none !important;
 }
 
 .logo-toggle:hover {
-    transform: scale(1.06);
+    transform: scale(1.06) !important;
 }
 
 .logo-toggle:focus-visible {
@@ -258,8 +257,8 @@ code.inline {
 
 header.masthead {
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin-left: 0;
+    margin-right: 0;
     margin-top: 0!important;
     margin-bottom: 2rem;
     position: relative;
@@ -351,18 +350,21 @@ header.masthead .bg-circle-4 {
 }
 
 header.masthead h1,
-header.masthead p,
-header.masthead a {
+header.masthead p{
     position: relative;
+    color: #000000 !important;
     z-index: 20;
 }
 
-header.masthead h1 {
-    color: #000000 !important;
+header.masthead a {
+    position: relative;
+    z-index: 20;
+    color: #ffffff !important;
 }
 
-[data-bs-theme="dark"] header.masthead h1 {
-  color: #ffffff !important;
+[data-bs-theme="dark"] header.masthead h1,
+[data-bs-theme="dark"] header.masthead p{
+    color: #ffffff !important;
 }
 
 /* =========================
@@ -392,14 +394,15 @@ header.masthead h1 {
 
 .sidebar-brand {
     height: 70px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    gap: 10px;
     padding: 0 15px;
     border-bottom: 1px solid var(--bs-border-color);
 }
 
 .sidebar-title {
+    justify-self: end;
     color: var(--bs-body-color);
     text-decoration: none;
     font-weight: 700;
@@ -417,7 +420,7 @@ header.masthead h1 {
 
     display: flex;
     align-items: center;
-
+    justify-self: start;
     gap: 12px;
 
     padding: 11px 14px;
@@ -471,15 +474,25 @@ header.masthead h1 {
 
 .sidebar-toggle {
     display: none;
-    position: static;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+
     width: 42px;
     height: 42px;
-    flex-shrink: 0;
+
+    align-items: center;
+    justify-content: center;
+
     border: 0;
     border-radius: 10px;
+
     background: var(--brand);
-    color: white;
+    color: #fff;
+
     font-size: 20px;
+    cursor: pointer;
 }
 
 
@@ -489,6 +502,9 @@ header.masthead h1 {
     display: none;
 }
 
+.sidebar-title {
+    justify-self: end;
+}
 
 /* Konten */
 
@@ -508,7 +524,7 @@ header.masthead h1 {
     }
 
     .sidebar-toggle {
-        display: block;
+        display: flex;
     }
 
     .main-content {
@@ -517,13 +533,9 @@ header.masthead h1 {
 
     .sidebar-overlay.show {
         display: block;
-
         position: fixed;
         inset: 0;
-
         background: rgba(0, 0, 0, .45);
-
         z-index: 1040;
     }
-
 }

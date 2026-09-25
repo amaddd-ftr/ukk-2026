@@ -1,5 +1,7 @@
 
-<button id="sidebarToggle" class="sidebar-toggle" type="button">
+<button id="sidebarToggle"
+        class="sidebar-toggle"
+        type="button">
     ☰
 </button>
 
@@ -7,9 +9,7 @@
 
 <aside id="sidebar" class="sidebar">
 
-    {{-- Logo --}}
     <div class="sidebar-brand">
-<center>
         @php
             $dbConnected = false;
 
@@ -104,6 +104,17 @@
                href="{{ route('admin.gedung.index') }}">
                 <span>🏢</span>
                 <span>Gedung</span>
+            </a>
+
+            <a class="sidebar-link {{ is_route('admin.sarana.index') ? 'active' : '' }}"
+               href="{{ route('admin.sarana.index') }}">
+                <span>🏢</span>
+                <span>Sarana</span>
+            </a>
+            <a class="sidebar-link {{ is_route('admin.prasarana.index') ? 'active' : '' }}"
+               href="{{ route('admin.prasarana.index') }}">
+                <span>🏢</span>
+                <span>Prasarana</span>
             </a>
 
 

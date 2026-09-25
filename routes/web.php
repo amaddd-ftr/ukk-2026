@@ -13,6 +13,7 @@ use App\Controllers\SiswaController;
 use App\Controllers\GedungController;
 use App\Controllers\RuanganController;
 use App\Controllers\SaranaController;
+use App\Controllers\PrasaranaController;
 use Sakuci\Route;
 
 /*
@@ -111,9 +112,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::delete('/ruangan/{id_ruangan}', [RuanganController::class, 'delete'])->name('admin.ruangan.delete');
 
 //Sarana
-  
-
+  Route::get('/sarana', [SaranaController::class,'index'])->name('admin.sarana.index');
+  Route::get('/sarana/create',[SaranaController::class, 'create'])->name('admin.sarana.create');
+  Route::post('/sarana/store',[SaranaController::class, 'store'])->name('admin.sarana.store');
+  Route::get('/sarana/{id_sarana}/edit',[SaranaController::class, 'edit'])->name('admin.sarana.edit');
+  Route::post('/sarana/{id_sarana}',[SaranaController::class, 'update'])->name('admin.sarana.update');
+  Route::delete('/sarana/{id_sarana}',[SaranaController::class, 'delete'])->name('admin.sarana.delete');
   });
+
+//Prasarana
+  Route::get('/prasarana',[PrasaranaController::class, 'index'])->name('admin.prasarana.index');
+  Route::get('/prasarana/create',[PrasaranaController::class, 'create'])->name('admin.prasarana.create');
+  Route::post('/prasarana/store',[PrasaranaController::class, 'store'])->name('admin.prasarana.store');
+  Route::get('/prasarana/{id_prasarana}/edit',[PrasaranaController::class, 'edit'])->name('admin.prasarana.edit');
+  Route::post('/prasarana/{id_prasarana}',[PrasaranaController::class, 'update'])->name('admin.prasarana.update');
+  Route::delete('/prasarana/{id_prasarana}',[PrasaranaController::class, 'delete'])->name('admin.prasarana.delete');
 
 /*
 |--------------------------------------------------------------------------
