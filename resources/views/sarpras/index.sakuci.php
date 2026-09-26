@@ -21,7 +21,6 @@
                 
                 <th>Kategori</th>
                 <th>Kondisi</th>
-                <th>Jumlah</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -37,9 +36,9 @@
                 <td>{{ $x->kode_sarpras }}</td>
                 <td>{{ $x->nama_sarpras }}</td>
               
-                <td>{{ $x->id_kategori }}</td>
-                <td>{{ $x->id_kondisi }}</td>
-                <td>{{ $x->jumlah_sarpras }}</td>
+                <td>{{ $x->nama_kategori }}</td>
+                <td>{{ $x->nama_kondisi }}</td>
+                
 
                 <td>
                     <a href="{{ route('admin.sarpras.edit', ['id_sarpras' => $x->id_sarpras]) }}"

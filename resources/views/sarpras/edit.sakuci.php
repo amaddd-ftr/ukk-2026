@@ -56,14 +56,6 @@
 
 </select>
 
-<label>Jumlah Sarpras</label>
-<input type="number"
-       name="jumlah_sarpras"
-       value="{{ $sarpras->jumlah_sarpras }}"
-       min="1"
-       class="form-control mb-3"
-       required>
-
 <button type="submit" class="btn btn-primary">
     Simpan
 </button>

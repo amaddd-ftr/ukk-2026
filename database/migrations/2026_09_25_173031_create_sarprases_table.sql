@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS `sarpras` (
 
     `kode_sarpras` VARCHAR(50) NOT NULL,
     `nama_sarpras` VARCHAR(255) NOT NULL,
-    `jumlah_sarpras` INT UNSIGNED NOT NULL DEFAULT 1,
 
     `created_at` DATETIME NULL,
     `updated_at` DATETIME NULL,

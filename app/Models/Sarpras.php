@@ -13,6 +13,6 @@ class Sarpras extends Model
         'id_kondisi',
         'kode_sarpras',
         'nama_sarpras',
-        'jumlah_sarpras',
+    
     ];
 }

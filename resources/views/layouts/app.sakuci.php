@@ -24,11 +24,11 @@
 
     {{-- Bootstrap --}}
     <link rel="stylesheet"
-          href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+          href="{{ asset('vendor/bootstrap/css/bootstrap.min.css?v=2') }}">
 
     {{-- CSS utama --}}
     <link rel="stylesheet"
-          href="{{ asset('css/app.css') }}">
+          href="{{ asset('css/app.css?v=2') }}">
 </head>
 
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">

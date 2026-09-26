@@ -66,17 +66,7 @@
         </select>
     </div>
 
-    <div class="form-group mb-3">
-        <label for="jumlah_sarpras">Jumlah Sarpras</label>
-        <input
-            type="number"
-            class="form-control"
-            id="jumlah_sarpras"
-            name="jumlah_sarpras"
-            min="1"
-            required
-        >
-    </div>
+    
 
     <button type="submit" class="btn btn-primary">
         Simpan
