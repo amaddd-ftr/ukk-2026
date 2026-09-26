@@ -55,7 +55,7 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'nis' => 'required|string|unique:siswa,nis,' . $id_siswa . ',id_siswa'
+            'nis' => 'required|string|unique:siswa,nis,' . $id_siswa . ',id_siswa',
             'kelas' => 'required|string|max:10',
         ]);
 

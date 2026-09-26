@@ -27,6 +27,50 @@
             <div class="bg-circle-4 bg-circle"></div>
             </div>
             </header>
+<div class="row g-2 mb-4">
+
+    <div class="col-6 col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Sarana</h6>
+                <h2>25</h2>
+                <small>Data sarana</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Prasarana</h6>
+                <h2>12</h2>
+                <small>Data prasarana</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Pengaduan</h6>
+                <h2>8</h2>
+                <small>Total pengaduan</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Selesai</h6>
+                <h2>5</h2>
+                <small>Pengaduan selesai</small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
     <section class="row g-4 align-items-start mb-5">
         <div class="col-lg-12">

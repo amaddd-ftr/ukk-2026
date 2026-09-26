@@ -263,7 +263,7 @@ header.masthead {
     margin-bottom: 2rem;
     position: relative;
     overflow: hidden;
-    padding-top: 6rem;
+    padding-top: 3rem;
     padding-bottom: 6rem;
 
     background: linear-gradient(
@@ -538,4 +538,17 @@ header.masthead a {
         background: rgba(0, 0, 0, .45);
         z-index: 1040;
     }
+}
+
+.card {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.container {
+  margin-top: 55px;
+}
+
+.atas {
+  margin-top: 50px;
 }

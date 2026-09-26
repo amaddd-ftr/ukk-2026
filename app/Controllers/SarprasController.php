@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Controllers;
+
+use Sakuci\Controller;
+use Sakuci\Http\Request;
+use App\Models\Sarpras;
+use App\Models\Kondisi;
+use App\Models\Kategori;
+
+class SarprasController extends Controller
+{
+    public function index(Request $request)
+    {
+        $sarpras = Sarpras::orderBy('id_sarpras', 'desc')->paginate(5);
+        $kondisi = Kondisi::all();
+        $kategori = Kategori::all();
+
+        return view('sarpras.index', compact(
+            'sarpras',
+            'kondisi',
+            'kategori'
+        ));
+    }
+
+    public function create(Request $request)
+    {
+        $kondisi = Kondisi::all();
+        $kategori = Kategori::all();
+
+        return view('sarpras.create', compact(
+            'kondisi',
+            'kategori'
+        ));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'id_kondisi' => 'required|exists:kondisi,id_kondisi',
+            'id_kategori' => 'required|exists:kategori,id_kategori',
+            'kode_sarpras' => 'required|string|max:50',
+            'nama_sarpras' => 'required|string|max:255',
+            'jumlah_sarpras' => 'required|integer|min:1',
+        ]);
+
+        Sarpras::create([
+            'id_kondisi' => $request->input('id_kondisi'),
+            'id_kategori' => $request->input('id_kategori'),
+            'kode_sarpras' => $request->input('kode_sarpras'),
+            'nama_sarpras' => $request->input('nama_sarpras'),
+            'jumlah_sarpras' => $request->input('jumlah_sarpras'),
+        ]);
+
+        return redirect()
+            ->route('admin.sarpras.index')
+            ->with('success', 'Sarpras berhasil ditambahkan.');
+    }
+
+    public function edit($id_sarpras)
+    {
+        $sarpras = Sarpras::findOrFail($id_sarpras);
+        $kondisi = Kondisi::all();
+        $kategori = Kategori::all();
+
+        return view('sarpras.edit', compact(
+            'sarpras',
+            'kondisi',
+            'kategori'
+        ));
+    }
+
+    public function update(Request $request, $id_sarpras)
+    {
+        $request->validate([
+            'id_kondisi' => 'required|exists:kondisi,id_kondisi',
+            'id_kategori' => 'required|exists:kategori,id_kategori',
+            'kode_sarpras' => 'required|string|max:50',
+            'nama_sarpras' => 'required|string|max:255',
+            'jumlah_sarpras' => 'required|integer|min:1',
+        ]);
+
+        $sarpras = Sarpras::findOrFail($id_sarpras);
+
+        $sarpras->update([
+            'id_kondisi' => $request->input('id_kondisi'),
+            'id_kategori' => $request->input('id_kategori'),
+            'kode_sarpras' => $request->input('kode_sarpras'),
+            'nama_sarpras' => $request->input('nama_sarpras'),
+            'jumlah_sarpras' => $request->input('jumlah_sarpras'),
+        ]);
+
+        return redirect()
+            ->route('admin.sarpras.index')
+            ->with('success', 'Sarpras berhasil diperbarui.');
+    }
+
+    public function delete($id_sarpras)
+    {
+        $sarpras = Sarpras::findOrFail($id_sarpras);
+        $sarpras->delete();
+
+        return redirect()
+            ->route('admin.sarpras.index')
+            ->with('success', 'Sarpras berhasil dihapus.');
+    }
+}

@@ -10,10 +10,9 @@ use App\Controllers\KategoriController;
 use App\Controllers\LokasiController;
 use App\Controllers\KondisiController;
 use App\Controllers\SiswaController;
-use App\Controllers\GedungController;
-use App\Controllers\RuanganController;
-use App\Controllers\SaranaController;
-use App\Controllers\PrasaranaController;
+use App\Controllers\StatusController;
+use App\Controllers\PengaduanController;
+
 use Sakuci\Route;
 
 /*
@@ -95,38 +94,58 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::post('/siswa/{id_siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
   Route::delete('/siswa/{id_siswa}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
 
-//Gedung
-  Route::get('/gedung', [GedungController::class, 'index'])->name('admin.gedung.index');
-  Route::get('/gedung/create', [GedungController::class, 'create'])->name('admin.gedung.create');
-  Route::post('/gedung/store', [GedungController::class, 'store'])->name('admin.gedung.store');
-  Route::get('/gedung/{id_gedung}/edit', [GedungController::class, 'edit'])->name('admin.gedung.edit');
-  Route::post('/gedung/{id_gedung}', [GedungController::class, 'update'])->name('admin.gedung.update');
-  Route::delete('/gedung/{id_gedung}', [GedungController::class, 'delete'])->name('admin.gedung.delete');
+//Sarpras
+  Route::get('/sarpras', [SarprasController::class, 'index'])->name('admin.sarpras.index');
 
-//Ruangan/Tempat
-  Route::get('/ruangan', [RuanganController::class, 'index'])->name('admin.ruangan.index');
-  Route::get('/ruangan/create',[RuanganController::class, 'create'])->name('admin.ruangan.create');
-  Route::post('/ruangan/store', [RuanganController::class, 'store'])->name('admin.ruangan.store');
-  Route::get('/ruangan/{id_ruangan}/edit', [RuanganController::class, 'edit'])->name('admin.ruangan.edit');
-  Route::post('/ruangan/{id_ruangan}', [RuanganController::class, 'update'])->name('admin.ruangan.update');
-  Route::delete('/ruangan/{id_ruangan}', [RuanganController::class, 'delete'])->name('admin.ruangan.delete');
+Route::get('/sarpras/create', [SarprasController::class, 'create'])->name('admin.sarpras.create');
 
-//Sarana
-  Route::get('/sarana', [SaranaController::class,'index'])->name('admin.sarana.index');
-  Route::get('/sarana/create',[SaranaController::class, 'create'])->name('admin.sarana.create');
-  Route::post('/sarana/store',[SaranaController::class, 'store'])->name('admin.sarana.store');
-  Route::get('/sarana/{id_sarana}/edit',[SaranaController::class, 'edit'])->name('admin.sarana.edit');
-  Route::post('/sarana/{id_sarana}',[SaranaController::class, 'update'])->name('admin.sarana.update');
-  Route::delete('/sarana/{id_sarana}',[SaranaController::class, 'delete'])->name('admin.sarana.delete');
-  });
+Route::post('/sarpras/store', [SarprasController::class, 'store'])->name('admin.sarpras.store');
 
-//Prasarana
-  Route::get('/prasarana',[PrasaranaController::class, 'index'])->name('admin.prasarana.index');
-  Route::get('/prasarana/create',[PrasaranaController::class, 'create'])->name('admin.prasarana.create');
-  Route::post('/prasarana/store',[PrasaranaController::class, 'store'])->name('admin.prasarana.store');
-  Route::get('/prasarana/{id_prasarana}/edit',[PrasaranaController::class, 'edit'])->name('admin.prasarana.edit');
-  Route::post('/prasarana/{id_prasarana}',[PrasaranaController::class, 'update'])->name('admin.prasarana.update');
-  Route::delete('/prasarana/{id_prasarana}',[PrasaranaController::class, 'delete'])->name('admin.prasarana.delete');
+Route::get('/sarpras/{id_sarpras}/edit', [SarprasController::class, 'edit'])->name('admin.sarpras.edit');
+
+Route::post('/sarpras/{id_sarpras}', [SarprasController::class, 'update'])->name('admin.sarpras.update');
+
+Route::delete('/sarpras/{id_sarpras}', [SarprasController::class, 'delete'])->name('admin.sarpras.delete');
+
+//Status
+  
+Route::get('/status', [StatusController::class, 'index'])
+    ->name('admin.status.index');
+
+Route::get('/status/create', [StatusController::class, 'create'])
+    ->name('admin.status.create');
+
+Route::post('/status/store', [StatusController::class, 'store'])
+    ->name('admin.status.store');
+
+Route::get('/status/{id_status}/edit', [StatusController::class, 'edit'])
+    ->name('admin.status.edit');
+
+Route::post('/status/{id_status}', [StatusController::class, 'update'])
+    ->name('admin.status.update');
+
+Route::delete('/status/{id_status}', [StatusController::class, 'delete'])
+    ->name('admin.status.delete');
+
+//Pengaduan
+  Route::get('/pengaduan', [PengaduanController::class, 'index'])
+    ->name('admin.pengaduan.index');
+
+Route::get('/pengaduan/create', [PengaduanController::class, 'create'])
+    ->name('admin.pengaduan.create');
+
+Route::post('/pengaduan/store', [PengaduanController::class, 'store'])
+    ->name('admin.pengaduan.store');
+
+Route::get('/pengaduan/{id_pengaduan}/edit', [PengaduanController::class, 'edit'])
+    ->name('admin.pengaduan.edit');
+
+Route::post('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'update'])
+    ->name('admin.pengaduan.update');
+
+Route::delete('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'delete'])
+    ->name('admin.pengaduan.delete');
+});
 
 /*
 |--------------------------------------------------------------------------

@@ -4,10 +4,10 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row atas">
         <div class="col-md-5 mx-auto">
             <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
+                <div class=" card-body p-4">
                     <h1 class="h4 mb-1">Masuk</h1>
                     <p class="text-secondary small mb-4">Akun demo: admin &mdash; password <code class="inline">rahasia123</code></p>
 

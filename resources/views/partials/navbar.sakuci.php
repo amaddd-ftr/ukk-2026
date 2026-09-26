@@ -100,29 +100,21 @@
             </a>
 
 
-            <a class="sidebar-link {{ is_route('admin.gedung.index') ? 'active' : '' }}"
-               href="{{ route('admin.gedung.index') }}">
-                <span>🏢</span>
-                <span>Gedung</span>
-            </a>
+            
 
-            <a class="sidebar-link {{ is_route('admin.sarana.index') ? 'active' : '' }}"
-               href="{{ route('admin.sarana.index') }}">
+            <a class="sidebar-link {{ is_route('admin.sarpras.index') ? 'active' : '' }}"
+               href="{{ route('admin.sarpras.index') }}">
                 <span>🏢</span>
-                <span>Sarana</span>
+                <span>Sarpras</span>
             </a>
-            <a class="sidebar-link {{ is_route('admin.prasarana.index') ? 'active' : '' }}"
-               href="{{ route('admin.prasarana.index') }}">
+      <a class="sidebar-link {{ is_route('admin.status.index') ? 'active' : '' }}"
+               href="{{ route('admin.status.index') }}">
                 <span>🏢</span>
-                <span>Prasarana</span>
-            </a>
+                <span>Status</span>
+      </a>
 
 
-            <a class="sidebar-link {{ is_route('admin.ruangan.index') ? 'active' : '' }}"
-               href="{{ route('admin.ruangan.index') }}">
-                <span>🚪</span>
-                <span>Tempat</span>
-            </a>
+          
 
 
             <div class="sidebar-divider"></div>

@@ -1,23 +1,25 @@
 @extends('layouts.app')
 
-@section('title', config('app.name') . ' -- Kerangka PHP Ringan')
+@section('title', config('app.name') . ' -- Daftar Sarpras')
 
 @section('content')
-<div class="container">
-    <h1>Daftar Sarana</h1>
+<div class="atas container">
 
-    <a href="{{ route('admin.sarana.create') }}"
+    <h1>Daftar Sarpras</h1>
+
+    <a href="{{ route('admin.sarpras.create') }}"
        class="btn btn-primary mb-3 btn-sm">
-        Tambah Sarana
+        Tambah Sarpras
     </a>
 
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Kode Sarana</th>
-                <th>Nama Sarana</th>
-                <th>Ruangan</th>
+                <th>Kode Sarpras</th>
+                <th>Nama Sarpras</th>
+                
+                <th>Kategori</th>
                 <th>Kondisi</th>
                 <th>Jumlah</th>
                 <th>Aksi</th>
@@ -29,22 +31,23 @@
                 $no = 1;
             @endphp
 
-            @foreach ($sarana as $x)
+            @foreach ($sarpras as $x)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $x->kode_sarana }}</td>
-                <td>{{ $x->nama_sarana }}</td>
-                <td>{{ $x->id_ruangan }}</td>
+                <td>{{ $x->kode_sarpras }}</td>
+                <td>{{ $x->nama_sarpras }}</td>
+              
+                <td>{{ $x->id_kategori }}</td>
                 <td>{{ $x->id_kondisi }}</td>
-                <td>{{ $x->jumlah_sarana }}</td>
+                <td>{{ $x->jumlah_sarpras }}</td>
 
                 <td>
-                    <a href="{{ route('admin.sarana.edit', ['id_sarana' => $x->id_sarana]) }}"
+                    <a href="{{ route('admin.sarpras.edit', ['id_sarpras' => $x->id_sarpras]) }}"
                        class="btn btn-sm btn-success">
                         Edit
                     </a>
 
-                    <form action="{{ route('admin.sarana.delete', ['id_sarana' => $x->id_sarana]) }}"
+                    <form action="{{ route('admin.sarpras.delete', ['id_sarpras' => $x->id_sarpras]) }}"
                           method="POST"
                           style="display: inline-block;">
                         @csrf
@@ -52,7 +55,7 @@
 
                         <button type="submit"
                                 class="btn btn-danger btn-sm"
-                                onclick="return confirm('Apakah Anda yakin ingin menghapus sarana ini?')">
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus sarpras ini?')">
                             Hapus
                         </button>
                     </form>
@@ -61,8 +64,8 @@
             @endforeach
         </tbody>
     </table>
+
+        {!! $sarpras->links() !!}
+
 </div>
-
-{!! $sarana->links() !!}
-
 @endsection
