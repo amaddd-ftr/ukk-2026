@@ -269,7 +269,7 @@ header.masthead {
     background: linear-gradient(
         135deg,
         #ffffff 0%,
-        #8f8f8f 55%,
+        #aeaeae 55%,
         #ffffff 100%
     );
 }
@@ -278,7 +278,7 @@ header.masthead {
     background: linear-gradient(
         135deg,
         #000000 0%,
-        #818181 50%,
+        #2a2a2a 50%,
         #000000 100%
     );
 }
@@ -365,6 +365,151 @@ header.masthead a {
 [data-bs-theme="dark"] header.masthead h1,
 [data-bs-theme="dark"] header.masthead p{
     color: #ffffff !important;
+}
+
+/* =========================
+   DASHBOARD SISWA
+   ========================= */
+
+.dashboard-header {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 230px;
+    padding: 2.5rem 2rem;
+
+    margin-bottom: 1.5rem;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #aeaeae 55%,
+        #ffffff 100%
+    );
+}
+
+[data-bs-theme="dark"] .dashboard-header {
+    background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #2a2a2a 50%,
+        #000000 100%
+    );
+}
+
+.dashboard-header-content {
+    position: relative;
+    z-index: 10;
+}
+
+.dashboard-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: .5rem;
+    color: #000000;
+}
+
+.dashboard-header p {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-bottom: 1.25rem;
+}
+
+[data-bs-theme="dark"] .dashboard-header h1,
+[data-bs-theme="dark"] .dashboard-header p {
+    color: #ffffff;
+}
+
+
+/* Lingkaran dekorasi */
+
+.dashboard-header .bg-circle {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: linear-gradient(
+        0deg,
+        #eeeeee 0%,
+        #acacac 100%
+    );
+}
+
+[data-bs-theme="dark"] .dashboard-header .bg-circle {
+    background: linear-gradient(
+        135deg,
+        #000000 0%,
+        #333333 100%
+    );
+}
+
+.dashboard-header .bg-circle-1 {
+    width: 28rem;
+    height: 28rem;
+
+    left: -17rem;
+    bottom: -20rem;
+}
+
+.dashboard-header .bg-circle-2 {
+    width: 20rem;
+    height: 20rem;
+
+    right: -8rem;
+    top: -10rem;
+}
+
+.dashboard-header .bg-circle-3 {
+    width: 15rem;
+    height: 15rem;
+
+    right: 15%;
+    bottom: -10rem;
+}
+
+
+/* Mobile */
+
+@media (max-width: 767.98px) {
+    .dashboard-header {
+        min-height: 200px;
+        padding: 2rem 1.5rem;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .dashboard-header p {
+        font-size: 1rem;
+    }
+}
+
+.pengaduan-header {
+    min-height: 180px;
+    padding: 2rem;
+}
+
+.pengaduan-header h1 {
+    font-size: 2.2rem;
+}
+
+.pengaduan-header p {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    .pengaduan-header {
+        min-height: 165px;
+        padding: 1.75rem 1.5rem;
+    }
+
+    .pengaduan-header h1 {
+        font-size: 1.8rem;
+    }
 }
 
 /* =========================

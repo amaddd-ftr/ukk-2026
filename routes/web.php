@@ -128,23 +128,11 @@ Route::delete('/status/{id_status}', [StatusController::class, 'delete'])
     ->name('admin.status.delete');
 
 //Pengaduan
-  Route::get('/pengaduan', [PengaduanController::class, 'index'])
+Route::get('/pengaduan', [PengaduanController::class, 'index'])
     ->name('admin.pengaduan.index');
 
-Route::get('/pengaduan/create', [PengaduanController::class, 'create'])
-    ->name('admin.pengaduan.create');
-
-Route::post('/pengaduan/store', [PengaduanController::class, 'store'])
-    ->name('admin.pengaduan.store');
-
-Route::get('/pengaduan/{id_pengaduan}/edit', [PengaduanController::class, 'edit'])
-    ->name('admin.pengaduan.edit');
-
-Route::post('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'update'])
-    ->name('admin.pengaduan.update');
-
-Route::delete('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'delete'])
-    ->name('admin.pengaduan.delete');
+Route::get('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'show'])
+    ->name('admin.pengaduan.show');
 });
 
 /*
@@ -160,6 +148,19 @@ Route::delete('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'delete'
 // @role:siswa:start
 Route::group(['prefix' => 'siswa', 'middleware' => 'siswa'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('siswa.dashboard');
+
+// Pengaduan Siswa
+Route::get('/pengaduan', [PengaduanController::class, 'index'])
+    ->name('pengaduan.index');
+
+Route::get('/pengaduan/create', [PengaduanController::class, 'create'])
+    ->name('pengaduan.create');
+
+Route::post('/pengaduan/store', [PengaduanController::class, 'store'])
+    ->name('pengaduan.store');
+
+Route::get('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'show'])
+    ->name('pengaduan.show');
 });
 // @role:siswa:end
 // @generated-roles:end

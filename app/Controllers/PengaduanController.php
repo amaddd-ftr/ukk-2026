@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Sakuci\Controller;
 use Sakuci\Http\Request;
+use App\Models\User;
 use App\Models\Pengaduan;
 use App\Models\Siswa;
 use App\Models\Sarpras;
@@ -12,105 +13,134 @@ use App\Models\Status;
 
 class PengaduanController extends Controller
 {
+    // Siswa melihat pengaduannya sendiri
+    // Admin melihat semua pengaduan
     public function index(Request $request)
-    {
-        $pengaduan = Pengaduan::orderBy('id_pengaduan', 'desc')->paginate(5);
+{
+    $user = User::current();
 
-        return view('pengaduan.index', compact('pengaduan'));
-    }
+    // =========================
+    // ADMIN
+    // =========================
+    if ($user->role === 'admin') {
 
-    public function create(Request $request)
-    {
-        $siswa = Siswa::all();
-        $sarpras = Sarpras::all();
-        $lokasi = Lokasi::all();
-        $status = Status::all();
-
-        return view('pengaduan.create', compact(
-            'siswa',
-            'sarpras',
-            'lokasi',
-            'status'
-        ));
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'id_siswa' => 'required',
-            'id_sarpras' => 'required',
-            'id_lokasi' => 'required',
-            'id_status' => 'required',
-            'judul' => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-        ]);
-
-        Pengaduan::create([
-            'id_siswa' => $request->input('id_siswa'),
-            'id_sarpras' => $request->input('id_sarpras'),
-            'id_lokasi' => $request->input('id_lokasi'),
-            'id_status' => $request->input('id_status'),
-            'judul' => $request->input('judul'),
-            'deskripsi' => $request->input('deskripsi'),
-        ]);
-
-        return redirect()
-            ->route('admin.pengaduan.index')
-            ->with('success', 'Pengaduan berhasil ditambahkan.');
-    }
-
-    public function edit($id_pengaduan)
-    {
-        $pengaduan = Pengaduan::findOrFail($id_pengaduan);
+        $pengaduan = Pengaduan::orderBy(
+            'id_pengaduan',
+            'desc'
+        )->paginate(5);
 
         $siswa = Siswa::all();
         $sarpras = Sarpras::all();
         $lokasi = Lokasi::all();
         $status = Status::all();
 
-        return view('pengaduan.edit', compact(
+        return view(
+            'core.admin.pengaduan.index',
+            compact(
+                'pengaduan',
+                'siswa',
+                'sarpras',
+                'lokasi',
+                'status'
+            )
+        );
+    }
+
+    // =========================
+    // SISWA
+    // =========================
+    $siswa = Siswa::where(
+        'id_user',
+        $user->id
+    )->first();
+
+    $pengaduan = Pengaduan::where(
+        'id_siswa',
+        $siswa->id_siswa
+    )
+    ->orderBy(
+        'id_pengaduan',
+        'desc'
+    )
+    ->paginate(5);
+
+    $sarpras = Sarpras::all();
+    $lokasi = Lokasi::all();
+    $status = Status::all();
+
+    return view(
+        'pengaduan.index',
+        compact(
             'pengaduan',
             'siswa',
             'sarpras',
             'lokasi',
             'status'
-        ));
+        )
+    );
+}
+
+
+    // Form membuat pengaduan
+    public function create(Request $request)
+    {
+        $sarpras = Sarpras::all();
+        $lokasi = Lokasi::all();
+
+        return view(
+            'pengaduan.create',
+            compact('sarpras', 'lokasi')
+        );
     }
 
-    public function update(Request $request, $id_pengaduan)
+
+    // Simpan pengaduan
+    public function store(Request $request)
+{
+    $request->validate([
+        'id_sarpras' => 'required|exists:sarpras,id_sarpras',
+        'id_lokasi' => 'required|exists:lokasi,id_lokasi',
+        'judul' => 'required|string|max:255',
+        'deskripsi' => 'required|string',
+    ]);
+
+    $user = User::current();
+
+    $siswa = Siswa::where(
+        'id_user',
+        $user->id
+    )->first();
+
+    $status = Status::where(
+        'nama_status',
+        'Menunggu'
+    )->first();
+
+    Pengaduan::create([
+        'id_siswa' => $siswa->id_siswa,
+        'id_sarpras' => $request->id_sarpras,
+        'id_lokasi' => $request->id_lokasi,
+        'id_status' => $status->id_status,
+        'judul' => $request->judul,
+        'deskripsi' => $request->deskripsi,
+    ]);
+
+    return redirect()
+        ->route('pengaduan.index')
+        ->with('success', 'Pengaduan berhasil dikirim.');
+}
+
+
+    // Detail pengaduan
+    public function show($id_pengaduan)
     {
-        $request->validate([
-            'id_siswa' => 'required',
-            'id_sarpras' => 'required',
-            'id_lokasi' => 'required',
-            'id_status' => 'required',
-            'judul' => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-        ]);
+        $pengaduan = Pengaduan::findOrFail(
+            $id_pengaduan
+        );
 
-        $pengaduan = Pengaduan::findOrFail($id_pengaduan);
-
-        $pengaduan->update([
-            'id_siswa' => $request->input('id_siswa'),
-            'id_sarpras' => $request->input('id_sarpras'),
-            'id_lokasi' => $request->input('id_lokasi'),
-            'id_status' => $request->input('id_status'),
-            'judul' => $request->input('judul'),
-            'deskripsi' => $request->input('deskripsi'),
-        ]);
-
-        return redirect()
-            ->route('admin.pengaduan.index')
-            ->with('success', 'Pengaduan berhasil diperbarui.');
-    }
-
-    public function delete($id_pengaduan)
-    {
-        $pengaduan = Pengaduan::findOrFail($id_pengaduan);
-        $pengaduan->delete();
-
-        return redirect()
-            ->route('admin.pengaduan.index')
-            ->with('success', 'Pengaduan berhasil dihapus.');
+        return view(
+            'pengaduan.show',
+            compact('pengaduan')
+        );
     }
 }
