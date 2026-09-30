@@ -73,13 +73,15 @@
                     </thead>
 
                     <tbody>
-
+@php
+    $no = 1;
+@endphp
                         @forelse ($pengaduan as $item)
 
                             <tr>
 
                                 <td>
-                                    {{ $loop->iteration }}
+                                    {{ $no++ }}
                                 </td>
 
                                 <td>
@@ -145,7 +147,12 @@
                                         Belum ada pengaduan.
                                     </div>
 
-                                    <a href="{{ route('pengaduan.create') }}"
+                                    <a href="{{ route('pengaduan.show', [
+    'id_pengaduan' => $item->id_pengaduan
+]) }}"
+   class="btn btn-outline-brand btn-sm">
+    Detail
+                  </a>
                                        class="btn btn-brand btn-sm">
                                         Buat Pengaduan
                                     </a>

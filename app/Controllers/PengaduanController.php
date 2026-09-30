@@ -35,7 +35,7 @@ class PengaduanController extends Controller
         $status = Status::all();
 
         return view(
-            'core.admin.pengaduan.index',
+            'admin.pengaduan.index',
             compact(
                 'pengaduan',
                 'siswa',
@@ -133,14 +133,111 @@ class PengaduanController extends Controller
 
     // Detail pengaduan
     public function show($id_pengaduan)
+{
+    $pengaduan = Pengaduan::findOrFail(
+        $id_pengaduan
+    );
+
+    $user = User::current();
+
+    // ADMIN
+    if ($user->role === 'admin') {
+
+        $siswa = Siswa::findOrFail(
+            $pengaduan->id_siswa
+        );
+
+        $sarpras = Sarpras::all();
+        $lokasi = Lokasi::all();
+        $status = Status::all();
+
+        return view(
+            'admin.pengaduan.show',
+            compact(
+                'pengaduan',
+                'siswa',
+                'sarpras',
+                'lokasi',
+                'status'
+            )
+        );
+    }
+
+    // SISWA
+    $siswa = Siswa::where(
+        'id_user',
+        $user->id
+    )->firstOrFail();
+
+    // Siswa hanya boleh melihat pengaduannya sendiri
+    if ($pengaduan->id_siswa != $siswa->id_siswa) {
+        abort(403);
+    }
+
+    $sarpras = Sarpras::all();
+    $lokasi = Lokasi::all();
+    $status = Status::all();
+
+    return view(
+        'pengaduan.show',
+        compact(
+            'pengaduan',
+            'siswa',
+            'sarpras',
+            'lokasi',
+            'status'
+        )
+    );
+}
+
+      // Admin mengubah status pengaduan
+    public function status(Request $request, $id_pengaduan)
     {
+        $request->validate([
+            'id_status' => 'required|exists:status,id_status',
+        ]);
+
         $pengaduan = Pengaduan::findOrFail(
             $id_pengaduan
         );
 
-        return view(
-            'pengaduan.show',
-            compact('pengaduan')
+        $pengaduan->update([
+            'id_status' => $request->id_status,
+        ]);
+
+        return redirect()
+            ->route('admin.pengaduan.show', [
+                'id_pengaduan' => $id_pengaduan
+            ])
+            ->with(
+                'success',
+                'Status berhasil diperbarui.'
+            );
+    }
+
+
+    // Admin memberikan tanggapan
+    public function tanggapan(Request $request, $id_pengaduan)
+    {
+        $request->validate([
+            'tanggapan' => 'required|string',
+        ]);
+
+        $pengaduan = Pengaduan::findOrFail(
+            $id_pengaduan
         );
+
+        $pengaduan->update([
+            'tanggapan' => $request->tanggapan,
+        ]);
+
+        return redirect()
+            ->route('admin.pengaduan.show', [
+                'id_pengaduan' => $id_pengaduan
+            ])
+            ->with(
+                'success',
+                'Tanggapan berhasil disimpan.'
+            );
     }
 }

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', config('app.name') . ' -- Pengaduan')
+
 @section('content')
 
 <div class="container">
@@ -10,84 +12,83 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Siswa</th>
-                <th>Sarpras</th>
-                <th>Lokasi</th>
+                <th>Nama Siswa</th>
+                <th>Nama Sarpras</th>
+                <th>Nama Lokasi</th>
                 <th>Judul</th>
                 <th>Status</th>
-                <th>Tanggal</th>
                 <th>Aksi</th>
             </tr>
         </thead>
 
         <tbody>
+
             @php
-                $no = ($pengaduan->currentPage() - 1)
-                    * $pengaduan->perPage() + 1;
+                $no = 1;
             @endphp
 
             @foreach ($pengaduan as $x)
 
-            @php
-                $dataSiswa = $siswa->firstWhere(
-                    'id_siswa',
-                    $x->id_siswa
-                );
+                @php
+                    $namaSiswa = '-';
+                    $namaSarpras = '-';
+                    $namaLokasi = '-';
+                    $namaStatus = '-';
 
-                $dataSarpras = $sarpras->firstWhere(
-                    'id_sarpras',
-                    $x->id_sarpras
-                );
+                    foreach ($siswa as $item) {
+                        if ($item->id_siswa == $x->id_siswa) {
+                            $namaSiswa = $item->nama;
+                            break;
+                        }
+                    }
 
-                $dataLokasi = $lokasi->firstWhere(
-                    'id_lokasi',
-                    $x->id_lokasi
-                );
+                    foreach ($sarpras as $item) {
+                        if ($item->id_sarpras == $x->id_sarpras) {
+                            $namaSarpras = $item->nama_sarpras;
+                            break;
+                        }
+                    }
 
-                $dataStatus = $status->firstWhere(
-                    'id_status',
-                    $x->id_status
-                );
-            @endphp
+                    foreach ($lokasi as $item) {
+                        if ($item->id_lokasi == $x->id_lokasi) {
+                            $namaLokasi = $item->nama_lokasi;
+                            break;
+                        }
+                    }
 
-            <tr>
-                <td>{{ $no++ }}</td>
+                    foreach ($status as $item) {
+                        if ($item->id_status == $x->id_status) {
+                            $namaStatus = $item->nama_status;
+                            break;
+                        }
+                    }
+                @endphp
 
-                <td>
-                    {{ $dataSiswa ? $dataSiswa->nama : '-' }}
-                </td>
+                <tr>
+                    <td>{{ $no++ }}</td>
 
-                <td>
-                    {{ $dataSarpras ? $dataSarpras->nama_sarpras : '-' }}
-                </td>
+                    <td>{{ $namaSiswa }}</td>
 
-                <td>
-                    {{ $dataLokasi ? $dataLokasi->nama_lokasi : '-' }}
-                </td>
+                    <td>{{ $namaSarpras }}</td>
 
-                <td>
-                    {{ $x->judul }}
-                </td>
+                    <td>{{ $namaLokasi }}</td>
 
-                <td>
-                    {{ $dataStatus ? $dataStatus->nama_status : '-' }}
-                </td>
+                    <td>{{ $x->judul }}</td>
 
-                <td>
-                    {{ $x->created_at }}
-                </td>
+                    <td>{{ $namaStatus }}</td>
 
-                <td>
-                    <a href="{{ route('admin.pengaduan.show', [
-                        'id_pengaduan' => $x->id_pengaduan
-                    ]) }}"
-                       class="btn btn-sm btn-primary">
-                        Lihat
-                    </a>
-                </td>
-            </tr>
+                    <td>
+                        <a href="{{ route('admin.pengaduan.show', [
+                            'id_pengaduan' => $x->id_pengaduan
+                        ]) }}"
+                           class="btn btn-sm btn-primary">
+                            Lihat
+                        </a>
+                    </td>
+                </tr>
 
             @endforeach
+
         </tbody>
     </table>
 

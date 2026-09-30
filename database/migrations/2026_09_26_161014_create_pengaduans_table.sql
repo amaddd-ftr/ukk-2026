@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
     `id_status` INT UNSIGNED NOT NULL,
     `judul` VARCHAR(255) NOT NULL,
     `deskripsi` TEXT NOT NULL,
+    `tanggapan` TEXT NULL,
     `created_at` DATETIME NULL,
     `updated_at` DATETIME NULL,
 

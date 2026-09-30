@@ -127,12 +127,19 @@ Route::post('/status/{id_status}', [StatusController::class, 'update'])
 Route::delete('/status/{id_status}', [StatusController::class, 'delete'])
     ->name('admin.status.delete');
 
-//Pengaduan
+// Pengaduan
 Route::get('/pengaduan', [PengaduanController::class, 'index'])
     ->name('admin.pengaduan.index');
 
 Route::get('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'show'])
     ->name('admin.pengaduan.show');
+
+Route::post('/pengaduan/{id_pengaduan}/status', [PengaduanController::class, 'status'])
+    ->name('admin.pengaduan.status');
+
+Route::post('/pengaduan/{id_pengaduan}/tanggapan', [PengaduanController::class, 'tanggapan'])
+    ->name('admin.pengaduan.tanggapan');
+
 });
 
 /*
