@@ -6,27 +6,34 @@
 
     {{-- Hero --}}
 <header class="masthead text-center text-white">
-            <div class="masthead-content">
-                <div class="container px-5">
-                    <h1 class="display-5 fw-bold mb-3 ">
-            Pengaduan Sarana & Prasarana,<br class="d-none d-md-inline">
-            <span class="text-brand">SEKOLAH</span>
-        </h1>
+    <div class="masthead-content">
+        <div class="container px-5">
 
-        <p class="lead text-white mx-auto mb-4" style="max-width: 620px;">
-            "Laporkan kerusakan atau permasalahan
-   fasilitas sekolah dengan mudah dan cepat."
-        </p>
-                    <div class="d-flex flex-wrap gap-2 justify-content-center">
-            <a class="btn btn-brand btn-lg px-4" href="{{ route('login') }}">Login untuk Membuat Pengaduan</a>
-                    </div>
+            <h1 class="display-5 fw-bold mb-3">
+                Pengaduan Sarana & Prasarana,<br class="d-none d-md-inline">
+                <span class="text-brand">SMk 1 CIMINDI</span>
+            </h1>
+
+            <p class="lead text-white mx-auto mb-4" style="max-width: 620px;">
+                "Laporkan kerusakan atau permasalahan fasilitas sekolah
+                dengan mudah dan cepat."
+            </p>
+
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-brand btn-lg px-4"
+                   href="{{ route('login') }}">
+                    Login untuk Membuat Pengaduan
+                </a>
             </div>
-            <div class="bg-circle-1 bg-circle"></div>
-            <div class="bg-circle-2 bg-circle"></div>
-            <div class="bg-circle-3 bg-circle"></div>
-            <div class="bg-circle-4 bg-circle"></div>
-            </div>
-            </header>
+
+        </div>
+    </div>
+
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
 <div class="row g-2 mb-4">
 
     <div class="col-6 col-md-3">

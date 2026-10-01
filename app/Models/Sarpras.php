@@ -10,7 +10,6 @@ class Sarpras extends Model
     protected string $primaryKey = 'id_sarpras';
     protected array $fillable = [
         'id_kategori',
-        'id_kondisi',
         'kode_sarpras',
         'nama_sarpras',
     

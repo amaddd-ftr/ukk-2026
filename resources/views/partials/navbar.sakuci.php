@@ -119,13 +119,7 @@
             <span>📍</span>
             <span>Lokasi</span>
         </a>
-
-        <a class="sidebar-link {{ is_route('admin.kondisi.index') ? 'active' : '' }}"
-           href="{{ route('admin.kondisi.index') }}">
-            <span>🔧</span>
-            <span>Kondisi</span>
-        </a>
-
+        
         <a class="sidebar-link {{ is_route('admin.siswa.index') ? 'active' : '' }}"
            href="{{ route('admin.siswa.index') }}">
             <span>👨‍🎓</span>

@@ -48,24 +48,7 @@
         </select>
     </div>
 
-    <div class="form-group mb-3">
-        <label for="id_kondisi">Kondisi</label>
-        <select
-            name="id_kondisi"
-            id="id_kondisi"
-            class="form-select"
-            required
-        >
-            <option value="">-- Pilih Kondisi --</option>
-
-            @foreach ($kondisi as $k)
-                <option value="{{ $k->id_kondisi }}">
-                    {{ $k->nama_kondisi }}
-                </option>
-            @endforeach
-        </select>
-    </div>
-
+   
     
 
     <button type="submit" class="btn btn-primary">

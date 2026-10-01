@@ -39,23 +39,6 @@
 
 </select>
 
-<label>Kondisi</label>
-<select name="id_kondisi"
-        id="id_kondisi"
-        class="form-select mb-3"
-        required>
-
-    <option value="">-- Pilih Kondisi --</option>
-
-    @foreach ($kondisi as $k)
-        <option value="{{ $k->id_kondisi }}"
-            {{ $sarpras->id_kondisi == $k->id_kondisi ? 'selected' : '' }}>
-            {{ $k->nama_kondisi }}
-        </option>
-    @endforeach
-
-</select>
-
 <button type="submit" class="btn btn-primary">
     Simpan
 </button>

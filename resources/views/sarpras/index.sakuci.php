@@ -20,7 +20,6 @@
                 <th>Nama Sarpras</th>
                 
                 <th>Kategori</th>
-                <th>Kondisi</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -37,7 +36,6 @@
                 <td>{{ $x->nama_sarpras }}</td>
               
                 <td>{{ $x->nama_kategori }}</td>
-                <td>{{ $x->nama_kondisi }}</td>
                 
 
                 <td>
