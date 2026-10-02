@@ -1,110 +1,365 @@
 @extends('layouts.app')
 
-@section('title', config('app.name') . ' -- Kerangka PHP Ringan')
+@section('title', 'Sistem Pengaduan Sarana & Prasarana')
 
 @section('content')
 
-    {{-- Hero --}}
-<header class="masthead text-center text-white">
-    <div class="masthead-content">
-        <div class="container px-5">
+{{-- ==================================================
+     HERO
+================================================== --}}
+<header class="home-hero">
 
-            <h1 class="display-5 fw-bold mb-3">
-                Pengaduan Sarana & Prasarana,<br class="d-none d-md-inline">
-                <span class="text-brand">SMk 1 CIMINDI</span>
-            </h1>
+    {{-- Dekorasi garis --}}
+    <div class="hero-line hero-line-1"></div>
+    <div class="hero-line hero-line-2"></div>
 
-            <p class="lead text-white mx-auto mb-4" style="max-width: 620px;">
-                "Laporkan kerusakan atau permasalahan fasilitas sekolah
-                dengan mudah dan cepat."
+    <div class="home-hero-content">
+
+        <div class="hero-badge">
+            <span>✦</span>
+            UNIVERSITAS CIMINDI
+        </div>
+
+        <h1>
+            Sistem Pengaduan
+            <span>Sarana &amp; Prasarana</span>
+        </h1>
+
+        <p>
+            Platform layanan pengaduan fasilitas kampus untuk menciptakan
+            lingkungan akademik yang nyaman, aman, dan terawat.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="{{ route('login') }}" class="btn btn-brand btn-lg">
+                <span>🔐</span>
+                Login untuk Membuat Pengaduan
+            </a>
+
+        </div>
+
+        <div class="hero-meta">
+            <span>✦ Layanan Digital Kampus</span>
+            <span>•</span>
+            <span>Universitas Cimindi</span>
+        </div>
+
+    </div>
+
+
+    {{-- ==================================================
+         GEDUNG KAMPUS
+    ================================================== --}}
+    <div class="campus-building">
+
+        {{-- Gedung kiri --}}
+        <div class="building-wing building-wing-left">
+
+            <div class="wing-roof"></div>
+
+            <div class="wing-windows">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+
+        {{-- Gedung utama --}}
+        <div class="building-main">
+
+            <div class="building-roof"></div>
+
+            <div class="building-columns">
+
+                <span class="building-window"></span>
+                <span class="building-window"></span>
+                <span class="building-window"></span>
+                <span class="building-window"></span>
+                <span class="building-window"></span>
+                <span class="building-window"></span>
+
+            </div>
+
+            <div class="building-door"></div>
+
+            <div class="building-sign">
+                UNIVERSITAS CIMINDI
+            </div>
+
+        </div>
+
+
+        {{-- Gedung kanan --}}
+        <div class="building-wing building-wing-right">
+
+            <div class="wing-roof"></div>
+
+            <div class="wing-windows">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+
+        {{-- Tanah --}}
+        <div class="building-ground"></div>
+
+    </div>
+
+</header>
+
+
+
+{{-- ==================================================
+     STATISTIK
+================================================== --}}
+<section class="home-statistics">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🏢
+        </div>
+
+        <div>
+
+            <div class="stat-label">
+                Sarana
+            </div>
+
+            <div class="stat-number">
+                25
+            </div>
+
+            <small>
+                Data sarana
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🏛️
+        </div>
+
+        <div>
+
+            <div class="stat-label">
+                Prasarana
+            </div>
+
+            <div class="stat-number">
+                12
+            </div>
+
+            <small>
+                Data prasarana
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📝
+        </div>
+
+        <div>
+
+            <div class="stat-label">
+                Pengaduan
+            </div>
+
+            <div class="stat-number">
+                8
+            </div>
+
+            <small>
+                Total pengaduan
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <div class="stat-label">
+                Selesai
+            </div>
+
+            <div class="stat-number">
+                5
+            </div>
+
+            <small>
+                Pengaduan selesai
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{{-- ==================================================
+     INFORMASI
+================================================== --}}
+<section class="home-info">
+
+
+    {{-- Tentang aplikasi --}}
+    <div class="info-card info-main">
+
+        <div class="info-icon">
+            ℹ
+        </div>
+
+        <div>
+
+            <h2>
+                Tentang Sistem
+            </h2>
+
+            <p>
+                <strong>Sistem Pengaduan Sarana &amp; Prasarana</strong>
+                merupakan platform digital Universitas Cimindi yang
+                digunakan untuk memudahkan mahasiswa dalam melaporkan
+                kerusakan atau permasalahan fasilitas kampus.
             </p>
 
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-brand btn-lg px-4"
-                   href="{{ route('login') }}">
-                    Login untuk Membuat Pengaduan
-                </a>
-            </div>
+            <p>
+                Setiap pengaduan dapat disampaikan secara terstruktur
+                sehingga pihak kampus dapat melakukan pemeriksaan,
+                penanganan, dan pemantauan hingga pengaduan selesai.
+            </p>
 
         </div>
+
     </div>
 
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
-</header>
-<div class="row g-2 mb-4">
 
-    <div class="col-6 col-md-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h6 class="text-muted">Sarana</h6>
-                <h2>25</h2>
-                <small>Data sarana</small>
-            </div>
+    {{-- Alur pengaduan --}}
+    <div class="info-card">
+
+        <div class="info-icon">
+            ↻
         </div>
-    </div>
 
-    <div class="col-6 col-md-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h6 class="text-muted">Prasarana</h6>
-                <h2>12</h2>
-                <small>Data prasarana</small>
-            </div>
-        </div>
-    </div>
+        <div>
 
-    <div class="col-6 col-md-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h6 class="text-muted">Pengaduan</h6>
-                <h2>8</h2>
-                <small>Total pengaduan</small>
-            </div>
-        </div>
-    </div>
+            <h2>
+                Alur Pengaduan
+            </h2>
 
-    <div class="col-6 col-md-3">
-        <div class="card shadow-sm h-100">
-            <div class="card-body">
-                <h6 class="text-muted">Selesai</h6>
-                <h2>5</h2>
-                <small>Pengaduan selesai</small>
-            </div>
-        </div>
-    </div>
-
-</div>
+            <div class="complaint-steps">
 
 
-    <section class="row g-4 align-items-start mb-5">
-        <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <h2 class="h5 fw-semibold mb-3">ℹ️ Tentang Aplikasi</h2>
+                <div class="complaint-step">
 
-                    <p>Pengaduan Sarana & Prasarana Sekolah merupakan aplikasi yang digunakan untuk memudahkan siswa dalam melaporkan kerusakan atau permasalahan pada fasilitas sekolah. Melalui aplikasi ini, siswa dapat menyampaikan pengaduan dengan informasi yang jelas, sementara admin dapat mengelola, memproses, dan memperbarui status pengaduan hingga selesai.</p>
-                      
-<p>Aplikasi ini bertujuan untuk membuat proses pelaporan sarana dan prasarana menjadi lebih mudah, terorganisir, dan transparan, sehingga permasalahan fasilitas sekolah dapat ditangani dengan lebih baik.</p>
+                    <span>01</span>
+
+                    <div>
+
+                        <strong>
+                            Login
+                        </strong>
+
+                        <small>
+                            Masuk menggunakan akun mahasiswa.
+                        </small>
+
+                    </div>
+
                 </div>
+
+
+                <div class="complaint-step">
+
+                    <span>02</span>
+
+                    <div>
+
+                        <strong>
+                            Buat Pengaduan
+                        </strong>
+
+                        <small>
+                            Isi informasi fasilitas yang bermasalah.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="complaint-step">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <strong>
+                            Diproses
+                        </strong>
+
+                        <small>
+                            Admin memeriksa dan menangani pengaduan.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="complaint-step">
+
+                    <span>04</span>
+
+                    <div>
+
+                        <strong>
+                            Selesai
+                        </strong>
+
+                        <small>
+                            Pengaduan telah ditangani.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
             </div>
+
         </div>
-    </section>
-      <section class="row g-4 align-items-start mb-5">
-        <div class="col-lg-12">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <h2 class="h5 fw-semibold mb-3">🔁 Cara Pengaduan</h2>
-                    <ol>
-                    <li> Login </li>
-                    <li> Buat Pengaduan </li>
-                    <li> Diproses </li>
-                    <li> Selesai </li>
-                    </ol>
-            </div>
-        </div>
-    </section>
+
+    </div>
+
+</section>
 
 @endsection

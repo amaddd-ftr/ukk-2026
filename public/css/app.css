@@ -1,718 +1,1267 @@
-/*
-| Lapisan tema di atas Bootstrap.
-| Bootstrap dimuat lebih dulu, file ini hanya menimpa seperlunya.
-*/
+/* ==================================================
+   UNIVERSITAS CIMINDI
+   PREMIUM CAMPUS THEME
+================================================== */
 
 :root {
-    --brand: #b10000;
-    --brand-dark: #b10000;
-    --brand-subtle: #fff7ed;
+
+    --brand: #b08d2c;
+    --brand-dark: #8c6d1f;
+    --brand-light: #d4af37;
+
+    --black: #090909;
+    --black-soft: #151515;
+
+    --white: #ffffff;
+
+    --text: #202020;
+    --muted: #777777;
+
+    --border: #e7e2d5;
+
+    --surface: #ffffff;
+    --surface-soft: #faf9f5;
+
+    --brand-subtle: #faf7ed;
 }
+
+
+/* ==================================================
+   BODY
+================================================== */
 
 body {
-    font-size: 15.5px;
+    background: var(--surface-soft);
+    color: var(--text);
 }
 
-/* Logo kotak di navbar */
-.brand-mark {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    background: var(--brand);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-}
 
-/* Navbar -- link aktif vs non-aktif */
-.navbar-nav .nav-link {
+/* ==================================================
+   HERO
+================================================== */
+
+.home-hero {
+
     position: relative;
-    font-weight: 500;
-    color: var(--bs-secondary-color);
-    padding-block: .5rem;
-    transition: color .15s ease;
-}
 
-.navbar-nav .nav-link:hover {
-    color: var(--brand);
-}
+    min-height: 600px;
 
-.navbar-nav .nav-link.active {
-    color: var(--brand);
-    font-weight: 700;
-}
-
-.navbar-nav .nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: .5rem;
-    right: .5rem;
-    bottom: 0;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--brand);
-}
-
-/* Logo navbar merangkap tombol toggle tema gelap/terang. Titik tengah
-   (hijau/merah) tetap menunjukkan status koneksi database seperti biasa;
-   cincin luarnya yang berubah warna mengikuti tema aktif. */
-.logo-toggle {
-    position: static !important;
-    justify-self: center;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: transparent;
-    transform: none !important;
-}
-
-.logo-toggle:hover {
-    transform: scale(1.06) !important;
-}
-
-.logo-toggle:focus-visible {
-    outline: 2px solid var(--brand);
-    outline-offset: 2px;
-}
-
-.logo-ring {
-    fill: #000000;
-    transition: fill .15s ease;
-}
-
-[data-bs-theme="dark"] .logo-ring {
-    fill: #ffffff;
-}
-
-/* Tombol warna khas Sakuci */
-.btn-brand {
-    background-color: var(--brand);
-    border-color: var(--brand);
-    color: #fff;
-}
-
-.btn-brand:hover,
-.btn-brand:focus,
-.btn-brand:active {
-    background-color: var(--brand-dark);
-    border-color: var(--brand-dark);
-    color: #fff;
-}
-
-.btn-outline-brand {
-    border-color: var(--brand);
-    color: var(--brand);
-}
-
-.btn-outline-brand:hover {
-    background-color: var(--brand);
-    color: #fff;
-}
-
-.text-brand   { color: var(--brand) !important; }
-.bg-brand-subtle { background-color: var(--brand-subtle) !important; }
-
-.badge-brand {
-    background-color: var(--brand-subtle);
-    color: var(--brand-dark);
-    font-weight: 600;
-}
-
-/* Blok kode */
-pre.code {
-    margin: 0;
-    padding: 16px;
-    border-radius: 10px;
-    background: #0f172a;
-    color: #e2e8f0;
-    font: 12.5px/1.7 ui-monospace, Consolas, "Courier New", monospace;
-    overflow-x: auto;
-}
-
-pre.code .cmt { color: #64748b; }
-
-code.inline {
-    padding: 2px 6px;
-    border-radius: 5px;
-    background: #eef0f2;
-    color: #0f172a;
-    font-size: 0.875em;
-}
-
-/* Nomor langkah */
-.step-number {
-    display: grid;
-    place-items: center;
-    flex: 0 0 auto;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--brand-subtle);
-    color: var(--brand-dark);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-/* Kotak pratinjau komponen di halaman /docs */
-.demo-preview {
-    border: 1px dashed #cbd5e1;
-    border-radius: 10px;
     overflow: hidden;
-}
-
-.demo-preview-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    color: #64748b;
-    background: #f1f5f9;
-    padding: 6px 12px;
-    border-bottom: 1px dashed #cbd5e1;
-}
-
-.demo-preview-body {
-    padding: 18px;
-    background: #fff;
-}
-
-/* Kotak warna untuk contoh grid & spacing di /docs */
-.demo-box {
-    padding: .6rem .5rem;
-    background: var(--brand-subtle);
-    border: 1px solid #fdba8c;
-    border-radius: 6px;
-    color: var(--brand-dark);
-    font-size: .8rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-.demo-box-alt {
-    background: #eef2ff;
-    border-color: #c7d2fe;
-    color: #3730a3;
-}
-
-/* Halaman error */
-.error-code {
-    font-size: 72px;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--brand);
-}
-
-/* Varian tema gelap untuk komponen yang warnanya di-hardcode di atas */
-[data-bs-theme="dark"] code.inline {
-    background: #11005e;
-    color: #e2e8f0;
-}
-
-/* pre.code sengaja navy gelap di mode terang (biar kontras) -- tapi di mode
-   gelap dia harus ikut warna permukaan Bootstrap, bukan navy sendiri. */
-[data-bs-theme="dark"] pre.code {
-    background: var(--bs-tertiary-bg);
-    color: var(--bs-body-color);
-    border: 1px solid var(--bs-border-color);
-}
-
-[data-bs-theme="dark"] pre.code .cmt {
-    color: var(--bs-secondary-color);
-}
-
-[data-bs-theme="dark"] .demo-preview {
-    border-color: #334155;
-}
-
-[data-bs-theme="dark"] .demo-preview-label {
-    background: #1e293b;
-    color: #94a3b8;
-    border-color: #334155;
-}
-
-[data-bs-theme="dark"] .demo-preview-body {
-    background: var(--bs-body-bg);
-}
-
-[data-bs-theme="dark"] .badge-brand,
-[data-bs-theme="dark"] .bg-brand-subtle,
-[data-bs-theme="dark"] .step-number {
-    background-color: rgba(194, 65, 12, .18) !important;
-    color: #fb923c;
-}
-
-[data-bs-theme="dark"] .demo-box {
-    background-color: rgba(194, 65, 12, .18);
-    border-color: rgba(194, 65, 12, .4);
-    color: #fb923c;
-}
-
-[data-bs-theme="dark"] .demo-box-alt {
-    background-color: rgba(99, 102, 241, .18);
-    border-color: rgba(99, 102, 241, .4);
-    color: #a5b4fc;
-}
-
-header.masthead {
-    width: 100vw;
-    margin: 0 0 2rem 0 !important;
-    position: relative;
-    overflow: hidden;
-    min-height: 300px;
 
     display: flex;
-    justify-content: center;
+
     align-items: center;
 
-    text-align: center;
+    justify-content: center;
 
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #aeaeae 55%,
-        #ffffff 100%
-    );
-}
+    background:
+        linear-gradient(
+            135deg,
+            #080808 0%,
+            #151515 55%,
+            #0b0b0b 100%
+        );
 
-
-[data-bs-theme="dark"] header.masthead {
-    background: linear-gradient(
-        135deg,
-        #000000 0%,
-        #2a2a2a 50%,
-        #000000 100%
-    );
-}
-
-header.masthead .masthead-content {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-header.masthead .masthead-content .masthead-heading {
-  font-size: 4rem;
-}
-header.masthead .masthead-content .masthead-subheading {
-  font-size: 2rem;
-}
-header.masthead .bg-circle {
-  z-index: 0;
-  position: absolute;
-  border-radius: 100%;
-  background: linear-gradient(0deg, #eeeeee 0%, #acacac 100%);
-}
-
-[data-bs-theme="dark"] header.masthead .bg-circle {
-    background: linear-gradient(
-        135deg,
-        #000000 0%,
-        #333333 100%
-    );
-}
-header.masthead .bg-circle-1 {
-  height: 90rem;
-  width: 90rem;
-  bottom: -55rem;
-  left: -55rem;
-}
-header.masthead .bg-circle-2 {
-  height: 50rem;
-  width: 50rem;
-  top: -25rem;
-  right: -25rem;
-}
-header.masthead .bg-circle-3 {
-  height: 50rem;
-  width: 50rem;
-  bottom: -10rem;
-  right: 5%;
-}
-header.masthead .bg-circle-4 {
-  height: 30rem;
-  width: 30rem;
-  top: -5rem;
-  right: 35%;
-}
-
-@media (min-width: 992px) {
-    header.masthead {
-        min-height: 340px;
-        padding: 3rem 2rem;
-    }
-
-    header.masthead .masthead-content {
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    header.masthead .masthead-content .masthead-heading {
-        font-size: 3rem;
-        text-align: center;
-    }
-
-    header.masthead .masthead-content .masthead-subheading {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-}
-
-header.masthead .masthead-content .container {
-    margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-header.masthead h1,
-header.masthead p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-header.masthead a {
-    position: relative;
-    z-index: 20;
-    color: #ffffff !important;
-}
-
-[data-bs-theme="dark"] header.masthead h1,
-[data-bs-theme="dark"] header.masthead p{
-    color: #ffffff !important;
-}
-
-/* =========================
-   DASHBOARD SISWA
-   ========================= */
-
-.dashboard-header {
-    position: relative;
-    overflow: hidden;
-
-    min-height: 230px;
-    padding: 2.5rem 2rem;
-
-    margin-bottom: 1.5rem;
-
-    border-radius: 18px;
-
-    background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #aeaeae 55%,
-        #ffffff 100%
-    );
-}
-
-[data-bs-theme="dark"] .dashboard-header {
-    background: linear-gradient(
-        135deg,
-        #000000 0%,
-        #2a2a2a 50%,
-        #000000 100%
-    );
-}
-
-.dashboard-header-content {
-    position: relative;
-    z-index: 10;
-}
-
-.dashboard-header h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: .5rem;
-    color: #000000;
-}
-
-.dashboard-header p {
-    font-size: 1.1rem;
-    color: #000000;
-    margin-bottom: 1.25rem;
-}
-
-[data-bs-theme="dark"] .dashboard-header h1,
-[data-bs-theme="dark"] .dashboard-header p {
     color: #ffffff;
 }
 
 
-/* Lingkaran dekorasi */
+/* Garis emas bagian atas */
 
-.dashboard-header .bg-circle {
+.home-hero::before {
+
+    content: "";
+
     position: absolute;
-    z-index: 0;
-    border-radius: 50%;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--brand-light),
+            transparent
+        );
+}
+
+
+/* ==================================================
+   GARIS DEKORASI
+================================================== */
+
+.hero-line {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212, 175, 55, .5),
+            transparent
+        );
+
+    transform: rotate(-45deg);
+
+    pointer-events: none;
+}
+
+.hero-line-1 {
+
+    right: 5%;
+
+    top: 35%;
+}
+
+.hero-line-2 {
+
+    left: 4%;
+
+    bottom: 35%;
+}
+
+
+/* ==================================================
+   HERO CONTENT
+================================================== */
+
+.home-hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(850px, 92%);
+
+    text-align: center;
+
+    padding: 80px 0 150px;
+}
+
+
+/* ==================================================
+   BADGE
+================================================== */
+
+.hero-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 18px;
+
+    margin-bottom: 24px;
+
+    border: 1px solid
+        rgba(212, 175, 55, .55);
+
+    border-radius: 50px;
+
+    background:
+        rgba(176, 141, 44, .08);
+
+    color: #e5c766;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.hero-badge span {
+
+    color: var(--brand-light);
+}
+
+
+/* ==================================================
+   HERO TITLE
+================================================== */
+
+.home-hero h1 {
+
+    margin: 0;
+
+    font-size: clamp(42px, 6vw, 72px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+.home-hero h1 span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--brand-light);
+
+    font-weight: 500;
+
+    letter-spacing: -1px;
+}
+
+
+/* ==================================================
+   HERO DESCRIPTION
+================================================== */
+
+.home-hero p {
+
+    max-width: 650px;
+
+    margin: 25px auto 30px;
+
+    color: #bdbdbd;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   HERO BUTTON
+================================================== */
+
+.hero-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 28px;
+}
+
+.btn-brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 25px;
+
+    border: 1px solid var(--brand-light);
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #a78322
+        );
+
+    color: #111 !important;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px
+        rgba(212, 175, 55, .18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.btn-brand:hover {
+
+    transform: translateY(-3px);
+
+    color: #111 !important;
+
+    box-shadow:
+        0 15px 35px
+        rgba(212, 175, 55, .3);
+}
+
+
+/* ==================================================
+   HERO META
+================================================== */
+
+.hero-meta {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==================================================
+   GEDUNG KAMPUS
+================================================== */
+
+.campus-building {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 145px;
+
     pointer-events: none;
 
-    background: linear-gradient(
-        0deg,
-        #eeeeee 0%,
-        #acacac 100%
-    );
-}
-
-[data-bs-theme="dark"] .dashboard-header .bg-circle {
-    background: linear-gradient(
-        135deg,
-        #000000 0%,
-        #333333 100%
-    );
-}
-
-.dashboard-header .bg-circle-1 {
-    width: 28rem;
-    height: 28rem;
-
-    left: -17rem;
-    bottom: -20rem;
-}
-
-.dashboard-header .bg-circle-2 {
-    width: 20rem;
-    height: 20rem;
-
-    right: -8rem;
-    top: -10rem;
-}
-
-.dashboard-header .bg-circle-3 {
-    width: 15rem;
-    height: 15rem;
-
-    right: 15%;
-    bottom: -10rem;
+    z-index: 3;
 }
 
 
-/* Mobile */
+/* ==================================================
+   GEDUNG UTAMA
+================================================== */
 
-@media (max-width: 767.98px) {
-    .dashboard-header {
-        min-height: 200px;
-        padding: 2rem 1.5rem;
-    }
+.building-main {
 
-    .dashboard-header h1 {
-        font-size: 2rem;
-    }
+    position: absolute;
 
-    .dashboard-header p {
-        font-size: 1rem;
-    }
-}
+    left: 50%;
 
-.pengaduan-header {
-    min-height: 180px;
-    padding: 2rem;
-}
+    bottom: 0;
 
-.pengaduan-header h1 {
-    font-size: 2.2rem;
-}
+    transform: translateX(-50%);
 
-.pengaduan-header p {
-    margin-bottom: 0;
-}
+    width: 300px;
 
-@media (max-width: 767.98px) {
-    .pengaduan-header {
-        min-height: 165px;
-        padding: 1.75rem 1.5rem;
-    }
+    height: 105px;
 
-    .pengaduan-header h1 {
-        font-size: 1.8rem;
-    }
-}
+    background:
+        linear-gradient(
+            180deg,
+            #1c1c1c,
+            #0b0b0b
+        );
 
-/* =========================
-   SIDEBAR
-   ========================= */
+    border-top:
+        3px solid var(--brand-light);
 
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 260px;
-    height: 100vh;
-
-    background: var(--bs-body-bg);
-    border-right: 1px solid var(--bs-border-color);
-
-    z-index: 1050;
-
-    overflow-y: auto;
-
-    transition: transform .3s ease;
+    box-shadow:
+        0 -10px 40px
+        rgba(0, 0, 0, .4);
 }
 
 
-/* Logo */
+/* ==================================================
+   ATAP GEDUNG
+================================================== */
 
-.sidebar-brand {
-    height: 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    padding: 0 15px;
-    border-bottom: 1px solid var(--bs-border-color);
+.building-roof {
+
+    position: absolute;
+
+    left: -20px;
+
+    top: -25px;
+
+    width: 340px;
+
+    height: 25px;
+
+    background: #080808;
+
+    border-top:
+        3px solid var(--brand-light);
+
+    border-bottom:
+        1px solid
+        rgba(212, 175, 55, .3);
 }
 
-.sidebar-title {
-    justify-self: end;
-    color: var(--bs-body-color);
-    text-decoration: none;
+.building-roof::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -13px;
+
+    transform: translateX(-50%);
+
+    width: 90px;
+
+    height: 13px;
+
+    background: #101010;
+
+    border-top:
+        2px solid var(--brand-light);
+}
+
+
+/* ==================================================
+   JENDELA GEDUNG UTAMA
+================================================== */
+
+.building-columns {
+
+    position: absolute;
+
+    left: 25px;
+    right: 25px;
+
+    top: 24px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    height: 42px;
+}
+
+.building-window {
+
+    width: 27px;
+
+    height: 42px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #202020 44%,
+            var(--brand-light) 45%,
+            var(--brand-light) 52%,
+            #202020 53%
+        );
+
+    border:
+        1px solid
+        rgba(212, 175, 55, .45);
+
+    border-radius:
+        2px 2px 0 0;
+}
+
+
+/* ==================================================
+   PINTU
+================================================== */
+
+.building-door {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 43px;
+
+    height: 63px;
+
+    background: #050505;
+
+    border:
+        2px solid var(--brand-light);
+
+    border-bottom: 0;
+
+    border-radius:
+        5px 5px 0 0;
+}
+
+
+/* ==================================================
+   NAMA GEDUNG
+================================================== */
+
+.building-sign {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 7px;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--brand-light);
+
     font-weight: 700;
 }
 
 
-/* Menu */
+/* ==================================================
+   GEDUNG SAYAP
+================================================== */
 
-.sidebar-nav {
-    padding: 15px 12px;
+.building-wing {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 230px;
+
+    height: 67px;
+
+    background: #121212;
+
+    border-top:
+        2px solid
+        rgba(212, 175, 55, .6);
 }
 
-.sidebar-link {
-    width: 100%;
+.building-wing-left {
+
+    left: calc(50% - 460px);
+
+    transform:
+        perspective(300px)
+        rotateY(7deg);
+}
+
+.building-wing-right {
+
+    right: calc(50% - 460px);
+
+    transform:
+        perspective(300px)
+        rotateY(-7deg);
+}
+
+
+/* ==================================================
+   ATAP SAYAP
+================================================== */
+
+.wing-roof {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: -8px;
+
+    height: 8px;
+
+    background: #080808;
+
+    border-top:
+        1px solid
+        var(--brand-light);
+}
+
+
+/* ==================================================
+   JENDELA SAYAP
+================================================== */
+
+.wing-windows {
 
     display: flex;
+
+    gap: 15px;
+
+    padding: 20px 22px;
+}
+
+.wing-windows span {
+
+    width: 27px;
+
+    height: 25px;
+
+    background: #202020;
+
+    border:
+        1px solid
+        rgba(212, 175, 55, .35);
+}
+
+
+/* ==================================================
+   TANAH GEDUNG
+================================================== */
+
+.building-ground {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 0;
+
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #070707,
+            var(--brand-light),
+            #070707
+        );
+}
+
+
+/* ==================================================
+   STATISTIK
+================================================== */
+
+.home-statistics {
+
+    position: relative;
+
+    z-index: 20;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    width: min(1100px, 92%);
+
+    margin:
+        -45px auto 50px;
+}
+
+
+/* ==================================================
+   STAT CARD
+================================================== */
+
+.stat-card {
+
+    display: flex;
+
     align-items: center;
-    justify-self: start;
-    gap: 12px;
 
-    padding: 11px 14px;
-    margin-bottom: 5px;
+    gap: 16px;
 
-    border: 0;
-    border-radius: 10px;
+    padding: 23px;
 
-    background: transparent;
+    background: var(--surface);
 
-    color: var(--bs-body-color);
-    text-decoration: none;
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, .06);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.stat-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, .1);
+}
+
+
+/* Icon */
+
+.stat-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: var(--brand-subtle);
+
+    border:
+        1px solid var(--border);
+
+    font-size: 21px;
+}
+
+
+/* Label */
+
+.stat-label {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* Number */
+
+.stat-number {
+
+    margin: 2px 0;
+
+    color: var(--black);
+
+    font-size: 27px;
+
+    font-weight: 800;
+}
+
+
+/* Small */
+
+.stat-card small {
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   INFORMATION
+================================================== */
+
+.home-info {
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap: 25px;
+
+    width: min(1100px, 92%);
+
+    margin:
+        0 auto 70px;
+}
+
+
+/* ==================================================
+   INFO CARD
+================================================== */
+
+.info-card {
+
+    display: flex;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, .04);
+}
+
+
+/* Icon */
+
+.info-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--black);
+
+    color: var(--brand-light);
+
+    font-size: 19px;
+}
+
+
+/* Heading */
+
+.info-card h2 {
+
+    margin-bottom: 15px;
+
+    color: var(--black);
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* Paragraph */
+
+.info-card p {
+
+    color: #666;
 
     font-size: 14px;
 
-    transition: all .2s ease;
-}
-
-.sidebar-link:hover {
-    background: var(--bs-tertiary-bg);
-    color: var(--brand);
-}
-
-.sidebar-link.active {
-    background: var(--brand);
-    color: #fff;
+    line-height: 1.8;
 }
 
 
-/* Garis pemisah */
+/* ==================================================
+   ALUR PENGADUAN
+================================================== */
 
-.sidebar-divider {
-    height: 1px;
-    background: var(--bs-border-color);
-    margin: 15px 5px;
+.complaint-steps {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
 }
 
+.complaint-step {
 
-/* Logout */
-
-.sidebar-logout {
-    text-align: left;
-}
-
-.sidebar-logout:hover {
-    color: #dc3545;
-}
-
-
-/* Tombol menu */
-
-.sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 1100;
-
-    width: 42px;
-    height: 42px;
+    display: flex;
 
     align-items: center;
+
+    gap: 13px;
+}
+
+.complaint-step > span {
+
+    display: flex;
+
+    align-items: center;
+
     justify-content: center;
 
-    border: 0;
-    border-radius: 10px;
+    width: 35px;
 
-    background: var(--brand);
+    height: 35px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--black);
+
+    color: var(--brand-light);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.complaint-step strong {
+
+    display: block;
+
+    margin-bottom: 2px;
+
+    font-size: 13px;
+}
+
+.complaint-step small {
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   DARK MODE
+================================================== */
+
+[data-bs-theme="dark"] body {
+
+    background: #0b0b0b;
+
+    color: #eee;
+}
+
+[data-bs-theme="dark"] .stat-card,
+[data-bs-theme="dark"] .info-card {
+
+    background: #151515;
+
+    border-color: #292929;
+}
+
+[data-bs-theme="dark"] .stat-number,
+[data-bs-theme="dark"] .info-card h2 {
+
     color: #fff;
+}
 
-    font-size: 20px;
-    cursor: pointer;
+[data-bs-theme="dark"] .info-card p {
+
+    color: #aaa;
+}
+
+[data-bs-theme="dark"] .stat-icon {
+
+    background: #1d1d1d;
+
+    border-color: #333;
+}
+
+[data-bs-theme="dark"] .stat-label {
+
+    color: #aaa;
+}
+
+[data-bs-theme="dark"] .stat-card small {
+
+    color: #777;
 }
 
 
-/* Overlay */
-
-.sidebar-overlay {
-    display: none;
-}
-
-.sidebar-title {
-    justify-self: end;
-}
-
-/* Konten */
-
-.main-content {
-    margin-left: 260px;
-    min-height: 100vh;
-}
+/* ==================================================
+   TABLET
+================================================== */
 
 @media (max-width: 991.98px) {
 
-    .sidebar {
-        transform: translateX(-100%);
+    .home-hero {
+
+        min-height: 580px;
     }
 
-    .sidebar.show {
-        transform: translateX(0);
+
+    .home-statistics {
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .sidebar-toggle {
-        display: flex;
+
+    .home-info {
+
+        grid-template-columns: 1fr;
     }
 
-    .main-content {
-        margin-left: 0;
+
+    .building-wing-left {
+
+        left: calc(50% - 350px);
     }
 
-    .sidebar-overlay.show {
-        display: block;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, .45);
-        z-index: 1040;
+    .building-wing-right {
+
+        right: calc(50% - 350px);
     }
+
 }
 
-.card {
-    margin-left: 25px;
-    margin-right: 25px;
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 767.98px) {
+
+    .home-hero {
+
+        min-height: 620px;
+    }
+
+
+    .home-hero-content {
+
+        padding:
+            70px 0 120px;
+    }
+
+
+    .hero-badge {
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+        padding: 7px 12px;
+    }
+
+
+    .home-hero h1 {
+
+        font-size: 39px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .home-hero h1 span {
+
+        margin-top: 5px;
+    }
+
+
+    .home-hero p {
+
+        font-size: 14px;
+
+        padding: 0 10px;
+    }
+
+
+    .hero-meta {
+
+        font-size: 8px;
+    }
+
+
+    .btn-brand {
+
+        width: 90%;
+
+        font-size: 13px;
+    }
+
+
+    /* ==============================
+       GEDUNG MOBILE
+    ============================== */
+
+    .campus-building {
+
+        height: 100px;
+    }
+
+
+    .building-main {
+
+        width: 180px;
+
+        height: 70px;
+    }
+
+
+    .building-roof {
+
+        left: -10px;
+
+        width: 200px;
+
+        height: 18px;
+
+        top: -18px;
+    }
+
+
+    .building-columns {
+
+        left: 15px;
+        right: 15px;
+
+        top: 17px;
+
+        height: 27px;
+    }
+
+
+    .building-window {
+
+        width: 16px;
+
+        height: 27px;
+    }
+
+
+    .building-door {
+
+        width: 27px;
+
+        height: 42px;
+    }
+
+
+    .building-sign {
+
+        font-size: 4px;
+
+        top: 5px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .building-wing {
+
+        width: 120px;
+
+        height: 43px;
+    }
+
+
+    .building-wing-left {
+
+        left: calc(50% - 240px);
+    }
+
+
+    .building-wing-right {
+
+        right: calc(50% - 240px);
+    }
+
+
+    .wing-windows {
+
+        gap: 7px;
+
+        padding: 13px 10px;
+    }
+
+
+    .wing-windows span {
+
+        width: 16px;
+
+        height: 15px;
+    }
+
+
+    /* ==============================
+       STATISTIK MOBILE
+    ============================== */
+
+    .home-statistics {
+
+        grid-template-columns: 1fr;
+
+        width: 90%;
+
+        margin-top: -30px;
+    }
+
+
+    .stat-card {
+
+        padding: 18px;
+    }
+
+
+    /* ==============================
+       INFO MOBILE
+    ============================== */
+
+    .home-info {
+
+        width: 90%;
+
+        gap: 15px;
+    }
+
+
+    .info-card {
+
+        padding: 22px;
+
+        gap: 14px;
+    }
+
+
+    .info-card h2 {
+
+        font-size: 18px;
+    }
+
+
+    .info-card p {
+
+        font-size: 13px;
+    }
+
 }
 
-.container {
-  margin-top: 55px;
-}
 
-.atas {
-  margin-top: 50px;
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 380px) {
+
+    .home-hero h1 {
+
+        font-size: 34px;
+    }
+
+
+    .hero-badge {
+
+        font-size: 8px;
+    }
+
+
+    .home-hero {
+
+        min-height: 600px;
+    }
+
 }
