@@ -87,7 +87,7 @@
             <div class="building-door"></div>
 
             <div class="building-sign">
-                UNIVERSITAS CIMINDI
+                
             </div>
 
         </div>
