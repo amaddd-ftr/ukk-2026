@@ -12,18 +12,23 @@
         <div class="dashboard-header-content">
 
             <span class="badge rounded-pill badge-brand px-3 py-2 mb-3">
-                Role: {{ $user->role }}
-            </span>
+    @if ($siswa)
+        Siswa
+    @else
+        Admin
+    @endif
+</span>
 
-            <h1>
-                Halo, {{ $siswa->nama }} 👋
-            </h1>
+<h1>
+    Halo, {{ $siswa->nama ?? $user->username }} 👋
+</h1>
+
 
             <p>
                 Selamat datang di dashboard pengaduan sarana dan prasarana sekolah.
             </p>
 
-            <a href="#"
+            <a href="{{ route('pengaduan.create') }}"
                class="btn btn-brand">
                 + Buat Pengaduan
             </a>

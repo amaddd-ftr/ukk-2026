@@ -12,6 +12,8 @@ use App\Controllers\KondisiController;
 use App\Controllers\SiswaController;
 use App\Controllers\StatusController;
 use App\Controllers\PengaduanController;
+use App\Controllers\GuruController;
+use App\Controllers\HomeController;
 
 use Sakuci\Route;
 
@@ -27,9 +29,7 @@ use Sakuci\Route;
 |   function () { ... }                -> closure
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/docs', [DocsController::class, 'index'])->name('docs');
 
@@ -93,6 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/siswa/{id_siswa}/edit', [SiswaController::class, 'edit'])->name('admin.siswa.edit');
   Route::post('/siswa/{id_siswa}', [SiswaController::class, 'update'])->name('admin.siswa.update');
   Route::delete('/siswa/{id_siswa}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
+
 
 //Sarpras
   Route::get('/sarpras', [SarprasController::class, 'index'])->name('admin.sarpras.index');
@@ -169,6 +170,8 @@ Route::post('/pengaduan/store', [PengaduanController::class, 'store'])
 Route::get('/pengaduan/{id_pengaduan}', [PengaduanController::class, 'show'])
     ->name('pengaduan.show');
 });
+
+
 // @role:siswa:end
 // @generated-roles:end
 

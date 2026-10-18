@@ -11,24 +11,6 @@
             <p class="text-secondary mb-0">Halaman ini hanya bisa diakses role <code class="inline">admin</code> (middleware <code class="inline">admin</code>).</p>
         </div>
     </div>
-
-    <div class="row g-4">
-        <div class="col-md-6">
-            <a href="{{ route('admin.roles.index') }}" class="card border-0 shadow-sm text-decoration-none h-100">
-                <div class="card-body p-4">
-                    <h2 class="h6 mb-1">Manage Role</h2>
-                    <p class="text-secondary small mb-0">Tambah role baru untuk dipakai saat membuat user.</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-6">
-            <a href="{{ route('admin.users.index') }}" class="card border-0 shadow-sm text-decoration-none h-100">
-                <div class="card-body p-4">
-                    <h2 class="h6 mb-1">Manage User</h2>
-                    <p class="text-secondary small mb-0">Tambah user baru dan tentukan role-nya.</p>
-                </div>
-            </a>
-        </div>
         <div class="col-md-6">
             <a href="{{ route('admin.database.export') }}" class="card border-0 shadow-sm text-decoration-none h-100">
                 <div class="card-body p-4">

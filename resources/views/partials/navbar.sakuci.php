@@ -56,7 +56,7 @@
             </strong>
 
             <small>
-                UNIVERSITAS CIMINDI
+                SMA NUSANTARA
             </small>
 
         </a>
@@ -155,7 +155,6 @@
 
             </a>
 
-
             <a class="sidebar-link {{ is_route('admin.sarpras.index') ? 'active' : '' }}"
                href="{{ route('admin.sarpras.index') }}">
 
@@ -177,7 +176,7 @@
             <a class="sidebar-link {{ is_route('admin.pengaduan.index') ? 'active' : '' }}"
                href="{{ route('admin.pengaduan.index') }}">
 
-                <span>📢</span>
+                <span>📋</span>
                 <span>Pengaduan</span>
 
             </a>
@@ -216,7 +215,7 @@
             <a class="sidebar-link {{ is_route('pengaduan.index') ? 'active' : '' }}"
                href="{{ route('pengaduan.index') }}">
 
-                <span>📢</span>
+                <span>📋</span>
                 <span>Pengaduan Saya</span>
 
             </a>

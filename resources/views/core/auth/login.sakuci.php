@@ -9,13 +9,14 @@
             <div class="card border-0 shadow-sm">
                 <div class=" card-body p-4">
                     <h1 class="h4 mb-1">Masuk</h1>
-                    <p class="text-secondary small mb-4">Akun demo: admin &mdash; password <code class="inline">rahasia123</code></p>
+                    <p class="text-secondary small mb-4">Akun demo: admin</br>NIS:admin&mdash; password <code class="inline">rahasia123</code></p>
+                    <p class="text-secondary small mb-4">Akun demo: Siswa</br>NIS:123456 &mdash; password <code class="inline">123456</code></p>
 
                     <form method="POST" action="{{ route('login.attempt') }}">
                         @csrf
 
                         <div class="mb-3">
-                            <label class="form-label" for="username">Username</label>
+                            <label class="form-label" for="username">NIS</label>
                             <input type="text" id="username" name="username" value="{{ old('username') }}" class="form-control {{ errors()->has('username') ? 'is-invalid' : '' }}" autofocus>
                             @error('username') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>

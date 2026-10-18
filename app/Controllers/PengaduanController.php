@@ -105,8 +105,8 @@ class PengaduanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_sarpras' => 'required|exists:sarpras,id_sarpras',
             'id_lokasi' => 'required|exists:lokasi,id_lokasi',
+            'id_sarpras' => 'required|exists:sarpras,id_sarpras',
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
         ]);

@@ -18,8 +18,8 @@
                 <th>No</th>
                 <th>Kode Sarpras</th>
                 <th>Nama Sarpras</th>
-                
                 <th>Kategori</th>
+                <th>Lokasi</th> <!-- Kolom baru untuk lokasi -->
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -34,9 +34,8 @@
                 <td>{{ $no++ }}</td>
                 <td>{{ $x->kode_sarpras }}</td>
                 <td>{{ $x->nama_sarpras }}</td>
-              
                 <td>{{ $x->nama_kategori }}</td>
-                
+                <td>{{ $x->nama_lokasi }}</td> <!-- Data lokasi dari database -->
 
                 <td>
                     <a href="{{ route('admin.sarpras.edit', ['id_sarpras' => $x->id_sarpras]) }}"
@@ -62,7 +61,7 @@
         </tbody>
     </table>
 
-        {!! $sarpras->links() !!}
+    {!! $sarpras->links() !!}
 
 </div>
 @endsection

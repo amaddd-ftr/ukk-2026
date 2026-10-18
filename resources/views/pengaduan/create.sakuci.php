@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-lg-8 mx-auto">
 
-            <div class="card border-0 shadow-sm">
+            <div class="card border-0 shadow-sm mb-4">
 
                 <div class="card-body p-4">
 
@@ -47,81 +47,86 @@
                         Isi data pengaduan dengan lengkap dan jelas.
                     </p>
 
-                    <form method="POST"
-                          action="{{ route('pengaduan.store') }}">
+                    {{-- LANGKAH 1: Form Pilih Lokasi (Mengirim GET ke Halaman Sendiri) --}}
+                    <form method="GET" action="{{ route('pengaduan.create') }}" class="mb-4 pb-3 border-bottom">
+                        <label class="form-label fw-bold" for="id_lokasi">
+                            1. Pilih Lokasi Terlebih Dahulu
+                        </label>
+
+                        <div class="input-group">
+                            <select
+                                id="id_lokasi"
+                                name="id_lokasi"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">
+                                    -- Pilih Lokasi --
+                                </option>
+
+                                @foreach ($lokasi as $item)
+                                    <option
+                                        value="{{ $item->id_lokasi }}"
+                                        {{ request('id_lokasi') == $item->id_lokasi ? 'selected' : '' }}
+                                    >
+                                        {{ $item->nama_lokasi }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            <button type="submit" class="btn btn-secondary">
+                                Tampilkan Sarpras
+                            </button>
+                        </div>
+                    </form>
+
+
+                    {{-- LANGKAH 2: Form Simpan Pengaduan --}}
+                    <form method="POST" action="{{ route('pengaduan.store') }}">
 
                         @csrf
+
+                        {{-- Hidden Input untuk id_lokasi yang sudah dipilih --}}
+                        <input type="hidden" name="id_lokasi" value="{{ request('id_lokasi') }}">
 
                         {{-- Sarana / Prasarana --}}
                         <div class="mb-3">
 
-                            <label class="form-label" for="id_sarpras">
-                                Sarana / Prasarana
+                            <label class="form-label fw-bold" for="id_sarpras">
+                                2. Pilih Sarana / Prasarana
                             </label>
 
                             <select
                                 id="id_sarpras"
                                 name="id_sarpras"
                                 class="form-select {{ errors()->has('id_sarpras') ? 'is-invalid' : '' }}"
+                                {{ !request('id_lokasi') ? 'disabled' : '' }}
+                                required
                             >
 
                                 <option value="">
-                                    -- Pilih Sarana / Prasarana --
+                                    @if(request('id_lokasi'))
+                                        -- Pilih Sarana / Prasarana --
+                                    @else
+                                        -- Silakan Pilih Lokasi di Atas Terlebih Dahulu --
+                                    @endif
                                 </option>
 
                                 @foreach ($sarpras as $item)
-
-                                    <option
-                                        value="{{ $item->id_sarpras }}"
-                                        {{ old('id_sarpras') == $item->id_sarpras ? 'selected' : '' }}
-                                    >
-                                        {{ $item->nama_sarpras }}
-                                    </option>
-
+                                    {{-- Filter Murni lewat Blade PHP --}}
+                                    @if (request('id_lokasi') && $item->id_lokasi == request('id_lokasi'))
+                                        <option
+                                            value="{{ $item->id_sarpras }}"
+                                            {{ old('id_sarpras') == $item->id_sarpras ? 'selected' : '' }}
+                                        >
+                                            {{ $item->nama_sarpras }}
+                                        </option>
+                                    @endif
                                 @endforeach
 
                             </select>
 
                             @error('id_sarpras')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-
-                        </div>
-
-
-                        {{-- Lokasi --}}
-                        <div class="mb-3">
-
-                            <label class="form-label" for="id_lokasi">
-                                Lokasi
-                            </label>
-
-                            <select
-                                id="id_lokasi"
-                                name="id_lokasi"
-                                class="form-select {{ errors()->has('id_lokasi') ? 'is-invalid' : '' }}"
-                            >
-
-                                <option value="">
-                                    -- Pilih Lokasi --
-                                </option>
-
-                                @foreach ($lokasi as $item)
-
-                                    <option
-                                        value="{{ $item->id_lokasi }}"
-                                        {{ old('id_lokasi') == $item->id_lokasi ? 'selected' : '' }}
-                                    >
-                                        {{ $item->nama_lokasi }}
-                                    </option>
-
-                                @endforeach
-
-                            </select>
-
-                            @error('id_lokasi')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -144,6 +149,8 @@
                                 value="{{ old('judul') }}"
                                 class="form-control {{ errors()->has('judul') ? 'is-invalid' : '' }}"
                                 placeholder="Contoh: Komputer tidak menyala"
+                                {{ !request('id_lokasi') ? 'disabled' : '' }}
+                                required
                             >
 
                             @error('judul')
@@ -168,6 +175,8 @@
                                 rows="5"
                                 class="form-control {{ errors()->has('deskripsi') ? 'is-invalid' : '' }}"
                                 placeholder="Jelaskan masalah atau kerusakan yang ditemukan..."
+                                {{ !request('id_lokasi') ? 'disabled' : '' }}
+                                required
                             >{{ old('deskripsi') }}</textarea>
 
                             @error('deskripsi')
@@ -190,6 +199,7 @@
                             <button
                                 type="submit"
                                 class="btn btn-brand"
+                                {{ !request('id_lokasi') ? 'disabled' : '' }}
                             >
                                 Kirim Pengaduan
                             </button>

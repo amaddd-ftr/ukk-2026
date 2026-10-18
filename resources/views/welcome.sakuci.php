@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sistem Pengaduan Sarana & Prasarana')
+@section('title', 'Sculoa - Sistem Pengaduan Sarana & Prasarana')
 
 @section('content')
 
@@ -17,17 +17,17 @@
 
         <div class="hero-badge">
             <span>✦</span>
-            UNIVERSITAS CIMINDI
+            SMA NUSANTARA
         </div>
 
         <h1>
-            Sistem Pengaduan
+            Pengaduan
             <span>Sarana &amp; Prasarana</span>
         </h1>
 
         <p>
-            Platform layanan pengaduan fasilitas kampus untuk menciptakan
-            lingkungan akademik yang nyaman, aman, dan terawat.
+            Platform layanan pengaduan fasilitas sekolah untuk menciptakan
+            lingkungan belajar yang nyaman, aman, dan terawat.
         </p>
 
         <div class="hero-actions">
@@ -40,16 +40,16 @@
         </div>
 
         <div class="hero-meta">
-            <span>✦ Layanan Digital Kampus</span>
+            <span>✦ Layanan Digital Sekolah</span>
             <span>•</span>
-            <span>Universitas Cimindi</span>
+            <span>SMA Nusantara</span>
         </div>
 
     </div>
 
 
     {{-- ==================================================
-         GEDUNG KAMPUS
+         GEDUNG KAMPUS / SEKOLAH
     ================================================== --}}
     <div class="campus-building">
 
@@ -123,105 +123,43 @@
 <section class="home-statistics">
 
     <div class="stat-card">
-
-        <div class="stat-icon">
-            🏢
-        </div>
-
+        <div class="stat-icon">🏢</div>
         <div>
-
-            <div class="stat-label">
-                Sarana
-            </div>
-
-            <div class="stat-number">
-                25
-            </div>
-
-            <small>
-                Data sarana
-            </small>
-
+            <div class="stat-label">Sarana</div>
+            <div class="stat-number">{{ $jumlahSarana }}</div>
+            <small>Data sarana</small>
         </div>
-
     </div>
 
-
     <div class="stat-card">
-
-        <div class="stat-icon">
-            🏛️
-        </div>
-
+        <div class="stat-icon">🏛️</div>
         <div>
-
-            <div class="stat-label">
-                Prasarana
-            </div>
-
-            <div class="stat-number">
-                12
-            </div>
-
-            <small>
-                Data prasarana
-            </small>
-
+            <div class="stat-label">Prasarana</div>
+            <div class="stat-number">{{ $jumlahPrasarana }}</div>
+            <small>Data prasarana</small>
         </div>
-
     </div>
 
-
     <div class="stat-card">
-
-        <div class="stat-icon">
-            📝
-        </div>
-
+        <div class="stat-icon">📝</div>
         <div>
-
-            <div class="stat-label">
-                Pengaduan
-            </div>
-
-            <div class="stat-number">
-                8
-            </div>
-
-            <small>
-                Total pengaduan
-            </small>
-
+            <div class="stat-label">Pengaduan</div>
+            <div class="stat-number">{{ $jumlahPengaduan }}</div>
+            <small>Total pengaduan</small>
         </div>
-
     </div>
 
-
     <div class="stat-card">
-
-        <div class="stat-icon">
-            ✓
-        </div>
-
+        <div class="stat-icon">✓</div>
         <div>
-
-            <div class="stat-label">
-                Selesai
-            </div>
-
-            <div class="stat-number">
-                5
-            </div>
-
-            <small>
-                Pengaduan selesai
-            </small>
-
+            <div class="stat-label">Selesai</div>
+            <div class="stat-number">{{ $jumlahSelesai }}</div>
+            <small>Pengaduan selesai</small>
         </div>
-
     </div>
 
 </section>
+
 
 
 
@@ -245,15 +183,14 @@
             </h2>
 
             <p>
-                <strong>Sistem Pengaduan Sarana &amp; Prasarana</strong>
-                merupakan platform digital Universitas Cimindi yang
-                digunakan untuk memudahkan mahasiswa dalam melaporkan
-                kerusakan atau permasalahan fasilitas kampus.
+                <strong>Sculoa</strong> merupakan platform pengaduan digital SMA Nusantara yang
+                digunakan untuk memudahkan siswa dalam melaporkan
+                kerusakan atau permasalahan fasilitas sekolah.
             </p>
 
             <p>
                 Setiap pengaduan dapat disampaikan secara terstruktur
-                sehingga pihak kampus dapat melakukan pemeriksaan,
+                sehingga pihak sekolah dapat melakukan pemeriksaan,
                 penanganan, dan pemantauan hingga pengaduan selesai.
             </p>
 
@@ -289,7 +226,7 @@
                         </strong>
 
                         <small>
-                            Masuk menggunakan akun mahasiswa.
+                            Masuk menggunakan akun siswa.
                         </small>
 
                     </div>

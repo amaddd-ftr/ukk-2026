@@ -16,11 +16,13 @@ class DashboardController extends Controller
             'id_user',
             $user->id
         )->first();
-
+      
         return view('core.dashboard', [
             'user' => $user,
             'siswa' => $siswa
         ]);
+
+        
     }
 
     public function admin()
