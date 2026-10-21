@@ -8,11 +8,12 @@
 
     <h1>Daftar Pengaduan</h1>
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped align-middle">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Nama Siswa</th>
+                <th>Foto</th>
                 <th>Nama Sarpras</th>
                 <th>Nama Lokasi</th>
                 <th>Judul</th>
@@ -68,6 +69,14 @@
                     <td>{{ $no++ }}</td>
 
                     <td>{{ $namaSiswa }}</td>
+
+                    <td>
+                        @if ($x->foto)
+                            <img src="{{ asset('uploads/pengaduan/' . $x->foto) }}" alt="Foto Pengaduan" width="50" height="50" class="rounded object-fit-cover">
+                        @else
+                            <span class="text-muted small">Tidak ada</span>
+                        @endif
+                    </td>
 
                     <td>{{ $namaSarpras }}</td>
 

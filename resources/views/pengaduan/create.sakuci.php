@@ -82,7 +82,7 @@
 
 
                     {{-- LANGKAH 2: Form Simpan Pengaduan --}}
-                    <form method="POST" action="{{ route('pengaduan.store') }}">
+                    <form method="POST" action="{{ route('pengaduan.store') }}" enctype="multipart/form-data">
 
                         @csrf
 
@@ -163,7 +163,7 @@
 
 
                         {{-- Deskripsi --}}
-                        <div class="mb-4">
+                        <div class="mb-3">
 
                             <label class="form-label" for="deskripsi">
                                 Deskripsi Pengaduan
@@ -180,6 +180,35 @@
                             >{{ old('deskripsi') }}</textarea>
 
                             @error('deskripsi')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+                        </div>
+
+
+                        {{-- Foto Bukti --}}
+                        <div class="mb-4">
+
+                            <label class="form-label" for="foto">
+                                Foto Bukti (Opsional)
+                            </label>
+
+                            <input
+                                type="file"
+                                id="foto"
+                                name="foto"
+                                class="form-control {{ errors()->has('foto') ? 'is-invalid' : '' }}"
+                                accept="image/png, image/jpeg, image/jpg"
+                                {{ !request('id_lokasi') ? 'disabled' : '' }}
+                            >
+
+                            <div class="form-text small text-secondary mt-1">
+                                Format yang diizinkan: JPG, JPEG, PNG. Ukuran maksimal: 2MB.
+                            </div>
+
+                            @error('foto')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

@@ -55,6 +55,22 @@
                 <div>{{ $pengaduan->deskripsi }}</div>
             </div>
 
+            <div class="mb-3">
+                <strong>Foto Bukti</strong>
+                <div>
+                    @if ($pengaduan->foto)
+                        <div class="mt-2">
+                            <a href="{{ asset('uploads/pengaduan/' . $pengaduan->foto) }}" target="_blank">
+                                <img src="{{ asset('uploads/pengaduan/' . $pengaduan->foto) }}" alt="Foto Pengaduan" class="img-fluid rounded border" style="max-height: 300px;">
+                            </a>
+                            <div class="form-text small text-secondary mt-1">Klik gambar untuk memperbesar.</div>
+                        </div>
+                    @else
+                        <span class="text-muted">Tidak ada foto yang dilampirkan.</span>
+                    @endif
+                </div>
+            </div>
+
 
             {{-- STATUS --}}
             <div class="mb-4">
