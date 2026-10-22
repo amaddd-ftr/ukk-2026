@@ -33,69 +33,114 @@
                 break;
             }
         }
+
+        // Siapkan path foto
+        $foto = trim($pengaduan->foto ?? '');
+
+        if ($foto !== '') {
+            $foto = ltrim($foto, '/');
+
+            // Hindari folder uploads/pengaduan yang berulang
+            if (strpos($foto, 'uploads/pengaduan/') !== 0) {
+                $foto = 'uploads/pengaduan/' . $foto;
+            }
+        }
     @endphp
 
     <div class="card border-0 shadow-sm">
         <div class="card-body">
 
+            {{-- Data siswa --}}
             <div class="mb-3">
                 <strong>Siswa</strong>
-                <div>{{ $siswa->nama }}</div>
+                <div>{{ $siswa->nama ?? '-' }}</div>
             </div>
 
+            {{-- Data sarpras --}}
             <div class="mb-3">
                 <strong>Sarpras</strong>
                 <div>{{ $namaSarpras }}</div>
             </div>
 
+            {{-- Data lokasi --}}
             <div class="mb-3">
                 <strong>Lokasi</strong>
                 <div>{{ $namaLokasi }}</div>
             </div>
 
+            {{-- Judul --}}
             <div class="mb-3">
                 <strong>Judul</strong>
-                <div>{{ $pengaduan->judul }}</div>
+                <div>{{ $pengaduan->judul ?? '-' }}</div>
             </div>
 
+            {{-- Deskripsi --}}
             <div class="mb-3">
                 <strong>Deskripsi</strong>
-                <div>{{ $pengaduan->deskripsi }}</div>
+                <div style="white-space: pre-wrap;">{{ $pengaduan->deskripsi ?? '-' }}</div>
             </div>
 
+            {{-- Foto bukti --}}
             <div class="mb-3">
                 <strong>Foto Bukti</strong>
-                <div>
-                    @if ($pengaduan->foto)
-                        <div class="mt-2">
-                            <a href="{{ asset('uploads/pengaduan/' . $pengaduan->foto) }}" target="_blank">
-                                <img src="{{ asset('uploads/pengaduan/' . $pengaduan->foto) }}" alt="Foto Pengaduan" class="img-fluid rounded border" style="max-height: 300px;">
-                            </a>
-                            <div class="form-text small text-secondary mt-1">Klik gambar untuk memperbesar.</div>
+
+                @if ($foto !== '')
+                    <div class="mt-2">
+
+                        <a href="{{ asset($foto) }}" target="_blank">
+                            <img
+                                src="{{ asset($foto) }}"
+                                alt="Foto Bukti Pengaduan"
+                                class="img-fluid rounded border"
+                                style="max-width: 100%; max-height: 350px; object-fit: contain;"
+                                onerror="this.style.display='none'; document.getElementById('foto-gagal').style.display='block';"
+                            >
+                        </a>
+
+                        <div
+                            id="foto-gagal"
+                            class="alert alert-warning mt-2"
+                            style="display: none;"
+                        >
+                            Foto gagal dimuat. Periksa path foto di database
+                            dan lokasi file pada hosting.
                         </div>
-                    @else
-                        <span class="text-muted">Tidak ada foto yang dilampirkan.</span>
-                    @endif
-                </div>
+
+                        <div class="form-text text-secondary mt-1">
+                            Klik gambar untuk melihat ukuran penuh.
+                        </div>
+
+                    </div>
+                @else
+                    <div class="text-muted mt-1">
+                        Tidak ada foto yang dilampirkan.
+                    </div>
+                @endif
             </div>
 
+            {{-- Status --}}
             <div class="mb-3">
                 <strong>Status</strong>
                 <div>{{ $namaStatus }}</div>
             </div>
 
+            {{-- Tanggapan admin --}}
             <div class="mb-3">
                 <strong>Tanggapan Admin</strong>
-                <div>{{ $pengaduan->tanggapan ?? 'Belum ada tanggapan' }}</div>
+                <div style="white-space: pre-wrap;">{{ $pengaduan->tanggapan ?? 'Belum ada tanggapan' }}</div>
             </div>
 
+            {{-- Tanggal --}}
             <div class="mb-3">
                 <strong>Tanggal</strong>
-                <div>{{ $pengaduan->created_at }}</div>
+                <div>{{ $pengaduan->created_at ?? '-' }}</div>
             </div>
 
-            <a href="{{ route('pengaduan.index') }}"
-               class="btn btn-secondary">
+            {{-- Tombol kembali --}}
+            <a
+                href="{{ route('pengaduan.index') }}"
+                class="btn btn-secondary"
+            >
                 Kembali
             </a>
 

@@ -25,12 +25,12 @@ class SiswaController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'nis' => 'required|string|unique:siswa,nis',
-            'kelas' => 'required|string|max:10',
+            'kelas' => 'required|string|max:100',
         ]);
 
         $user = User::create([
             'username' => $request->nis,
-            'password' => password_hash('123456', PASSWORD_DEFAULT),
+            'password' => password_hash('sculoa', PASSWORD_DEFAULT),
             'role' => 'siswa',
         ]
         );
@@ -56,7 +56,7 @@ class SiswaController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'nis' => 'required|string|unique:siswa,nis,' . $id_siswa . ',id_siswa',
-            'kelas' => 'required|string|max:10',
+            'kelas' => 'required|string|max:100',
         ]);
 
         $siswa = Siswa::findOrFail($id_siswa);

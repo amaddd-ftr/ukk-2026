@@ -10,7 +10,12 @@
     <label>Nis</label>
     <input type="text" name="nis" value="{{ $siswa->nis }}" class="form-control mb-3" required>
     <label>Kelas</label>
-    <input type="text" name="kelas" value="{{ $siswa->kelas }}" class="form-control mb-3" required>
+    <select name="kelas" id="kelas" value="{{ $siswa->kelas }}" class="form-select mb-3" required>
+                <option value="">-- Pilih Kelas --</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+    </select>
 
 
     <button type="submit" class="btn btn-primary">Simpan</button>

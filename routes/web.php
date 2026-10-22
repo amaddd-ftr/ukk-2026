@@ -31,6 +31,7 @@ use Sakuci\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
 Route::get('/docs', [DocsController::class, 'index'])->name('docs');
 
 /*

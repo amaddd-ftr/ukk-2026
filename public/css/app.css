@@ -600,77 +600,87 @@ a {
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
     width: 260px;
     height: 100vh;
+    height: 100dvh;
     background: linear-gradient(180deg, #111111, #181818);
     border-right: 1px solid #3b3b3b;
+    color: #ffffff;
     z-index: 1050;
-    overflow-y: auto;
+    overflow: hidden;
     transition: transform .3s ease;
 }
 
+/* Header sidebar */
 .sidebar-brand {
-    min-height: 76px;
+    min-height: 100px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 18px;
-    color: #ffffff;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 18px;
+    text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
-.logo-toggle {
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    flex: 0 0 42px;
-    display: grid;
-    place-items: center;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-}
-
-.sidebar-logo-ring {
-    fill: #111111;
-    stroke: #d4af37;
-    stroke-width: 2;
-}
-
 .sidebar-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     min-width: 0;
     color: #ffffff !important;
-    line-height: 1.2;
+    line-height: 1.3;
     text-decoration: none;
+    text-align: center;
+}
+
+.sidebar-title:hover {
+    color: #ffffff !important;
 }
 
 .sidebar-title strong {
     display: block;
+    width: 100%;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: center;
+    overflow-wrap: anywhere;
 }
 
 .sidebar-title small {
     display: block;
-    margin-top: 3px;
+    width: 100%;
+    margin-top: 6px;
     color: #d4af37;
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: .08em;
+    letter-spacing: .12em;
+    text-align: center;
 }
 
+/* Navigasi */
 .sidebar-nav {
-    padding: 12px 0 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    padding: 12px 0 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #49412b #181818;
 }
 
 .sidebar-link {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
     width: calc(100% - 20px);
     margin: 4px 10px;
     padding: 11px 13px;
@@ -678,7 +688,10 @@ a {
     background: transparent;
     border: 0;
     border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 600;
+    text-align: left;
     text-decoration: none;
     transition: background .2s ease, color .2s ease, transform .2s ease;
 }
@@ -706,15 +719,71 @@ a {
     margin-top: 8px;
 }
 
+/* Mendorong pengaturan tema ke bagian bawah */
+.sidebar-spacer {
+    flex: 1 0 20px;
+    min-height: 20px;
+}
+
+/* Tombol dark/light */
+.sidebar-theme {
+    flex-shrink: 0;
+    padding: 10px 10px 4px;
+}
+
+.sidebar-theme-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 11px 13px;
+    color: #d4d4d4;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(212, 175, 55, .25);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.sidebar-theme-button:hover {
+    color: #ffffff;
+    background: rgba(212, 175, 55, .12);
+}
+
+.sidebar-theme-button .theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    min-width: 22px;
+    font-size: 17px;
+}
+
+.sidebar-theme-button .theme-label {
+    flex: 1;
+}
+
+/* Garis pemisah */
 .sidebar-divider {
     height: 1px;
-    margin: 12px 18px;
+    flex-shrink: 0;
+    margin: 10px 18px;
     background: rgba(212, 175, 55, .25);
+}
+
+/* Logout */
+.sidebar-nav form {
+    flex-shrink: 0;
+    margin: 0;
 }
 
 .sidebar-logout {
     font-family: inherit;
-    font-size: inherit;
+    font-size: 14px;
     text-align: left;
     cursor: pointer;
 }
@@ -724,6 +793,7 @@ a {
     background: rgba(212, 175, 55, .08);
 }
 
+/* Tombol buka sidebar di layar kecil */
 .sidebar-toggle {
     position: fixed;
     top: 15px;
@@ -740,6 +810,7 @@ a {
     cursor: pointer;
 }
 
+/* Overlay mobile */
 .sidebar-overlay {
     position: fixed;
     inset: 0;
@@ -753,6 +824,27 @@ a {
 .sidebar-overlay.show {
     opacity: 1;
     visibility: visible;
+}
+
+/* Tampilan mobile */
+@media (max-width: 767.98px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+/* Mengurangi animasi jika diminta perangkat */
+@media (prefers-reduced-motion: reduce) {
+    .sidebar,
+    .sidebar-link,
+    .sidebar-theme-button,
+    .sidebar-overlay {
+        transition: none;
+    }
 }
 
 .main-content {

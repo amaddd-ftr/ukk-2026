@@ -6,10 +6,10 @@
     <h1>Edit Sarpras</h1>
 
     <form action="{{ route('admin.sarpras.update', ['id_sarpras' => $sarpras->id_sarpras]) }}"
-          method="POST"
+          method="post"
           class="d-flex flex-column form-horizontal">
         @csrf
-        @method('PUT')
+        @method('post')
 
         <label for="kode_sarpras">Kode Sarpras</label>
         <input type="text"
