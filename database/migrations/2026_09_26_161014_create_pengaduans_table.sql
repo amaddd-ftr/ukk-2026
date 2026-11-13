@@ -14,19 +14,19 @@ CREATE TABLE IF NOT EXISTS `pengaduan` (
     CONSTRAINT `fk_pengaduan_siswa`
         FOREIGN KEY (`id_siswa`)
         REFERENCES `siswa` (`id_siswa`)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
 
     CONSTRAINT `fk_pengaduan_sarpras`
         FOREIGN KEY (`id_sarpras`)
         REFERENCES `sarpras` (`id_sarpras`)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
 
     CONSTRAINT `fk_pengaduan_lokasi`
         FOREIGN KEY (`id_lokasi`)
         REFERENCES `lokasi` (`id_lokasi`)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
 
     CONSTRAINT `fk_pengaduan_status`

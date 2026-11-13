@@ -15,13 +15,13 @@ CREATE TABLE IF NOT EXISTS `sarpras` (
     CONSTRAINT `fk_sarpras_kategori`
         FOREIGN KEY (`id_kategori`)
         REFERENCES `kategori` (`id_kategori`)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE,
 
     CONSTRAINT `fk_sarpras_lokasi`
         FOREIGN KEY (`id_lokasi`)
         REFERENCES `lokasi` (`id_lokasi`)
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
         ON UPDATE CASCADE
 
 
